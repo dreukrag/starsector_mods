@@ -1,4 +1,4 @@
-# starfarer.api index — Starsector 0.98a
+# starfarer.api index — Starsector 0.98a-RC8
 
 1947 types. Format: `kind FQN` — summary → path (relative to this file).
 Grep this file to find a type, then open its source for full signatures and Javadoc.
