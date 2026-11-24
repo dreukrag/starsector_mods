@@ -78,6 +78,7 @@ public class BoostedHighResSensors extends HighResSensors {
 
 	// Copy of vanilla's tooltip, reading BONUS instead of vanilla's private values.
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
+		float pad = 3f;
 		float opad = 10f;
 		Color h = Misc.getHighlightColor();
 		Color bad = Misc.getNegativeHighlightColor();
@@ -99,6 +100,8 @@ public class BoostedHighResSensors extends HighResSensors {
 				"fleet wide",
 				"" + Math.round(HrsMissileGuidancePlugin.SPEED_PER_SHIP) + "%",
 				"" + Math.round(HrsMissileGuidancePlugin.MANEUVER_PER_SHIP) + "%");
+		tooltip.addPara("More than %s active sensors at once do not increase missile performance.", pad, h,
+				"" + HrsMissileGuidancePlugin.MAX_STACKS);
 
 		if (isForModSpec || ship == null) return;
 		if (Global.getSettings().getCurrentState() == GameState.TITLE) return;

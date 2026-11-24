@@ -15,7 +15,7 @@ import com.fs.starfarer.api.loading.HullModSpecAPI;
  *
  * Every frame, counts each side's live, non-fighter ships that carry the hullmod and gives every
  * ship (and fighter) on that side +SPEED_PER_SHIP% missile top speed and +MANEUVER_PER_SHIP%
- * missile maneuverability per counted ship. Bonuses drop as those ships are destroyed, and are
+ * missile maneuverability per counted ship, counting at most MAX_STACKS ships. Bonuses drop as those ships are destroyed, and are
  * removed when none are left. Applies to both sides, so enemy fleets with the hullmod get it too.
  *
  * Added to the combat engine by BoostedHighResSensors the first time a ship with the hullmod
@@ -25,6 +25,8 @@ public class HrsMissileGuidancePlugin extends BaseEveryFrameCombatPlugin {
 
 	public static final float SPEED_PER_SHIP = 5f;
 	public static final float MANEUVER_PER_SHIP = 10f;
+	/** Ships beyond this many per side don't add more bonus. */
+	public static final int MAX_STACKS = 3;
 
 	public static final String ENGINE_KEY = "dreukrag_hrs_missile_guidance";
 	private static final String MOD_ID = "dreukrag_hrs_missile_guidance";
@@ -51,6 +53,9 @@ public class HrsMissileGuidancePlugin extends BaseEveryFrameCombatPlugin {
 			if (s.getOwner() == 0) playerCount++;
 			else if (s.getOwner() == 1) enemyCount++;
 		}
+
+		playerCount = Math.min(playerCount, MAX_STACKS);
+		enemyCount = Math.min(enemyCount, MAX_STACKS);
 
 		it = ships.iterator();
 		while (it.hasNext()) {

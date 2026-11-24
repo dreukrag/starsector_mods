@@ -25,7 +25,7 @@ dedicated sensor ships stay worth bringing despite them.
 
 Each live ship carrying High Resolution Sensors gives **every ship and fighter on its side**
 +5% missile top speed and +10% missile maneuverability (acceleration, turn rate and turn acceleration).
-This stacks per ship: 3 ships with the hullmod give +15% / +30%. A ship stops counting once destroyed,
+This stacks per ship up to 3 ships, for a maximum of +15% / +30%; more carriers add nothing. A ship stops counting once destroyed,
 and the player sees the current bonus as a "Sensor-guided missiles" status in combat.
 It works the same for AI fleets, so enemies carrying the hullmod get it too.
 The "burn through enemy ECM" part of the tooltip is flavour; it doesn't change ECM/ECCM values.
@@ -38,7 +38,7 @@ hullmod spec at the new class and sets the OP cost directly on the spec.
 In combat, the first ship with the hullmod to be deployed adds `HrsMissileGuidancePlugin` to the battle,
 which recounts each side every frame and sets the missile bonuses.
 To change the numbers, edit `BONUS` in `BoostedHighResSensors.java` the `COST_*` values in
-`HrsBoostModPlugin.java`, or `SPEED_PER_SHIP` / `MANEUVER_PER_SHIP` in `HrsMissileGuidancePlugin.java`, then rebuild.
+`HrsBoostModPlugin.java`, or `SPEED_PER_SHIP` / `MANEUVER_PER_SHIP` / `MAX_STACKS` in `HrsMissileGuidancePlugin.java`, then rebuild.
 
 ## Install
 
