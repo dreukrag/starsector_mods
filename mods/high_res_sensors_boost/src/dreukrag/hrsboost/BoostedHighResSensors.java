@@ -30,10 +30,10 @@ public class BoostedHighResSensors extends HighResSensors {
 
 	public static final Map BONUS = new HashMap();
 	static {
-		BONUS.put(HullSize.FRIGATE, Float.valueOf(200f));
-		BONUS.put(HullSize.DESTROYER, Float.valueOf(400f));
-		BONUS.put(HullSize.CRUISER, Float.valueOf(800f));
-		BONUS.put(HullSize.CAPITAL_SHIP, Float.valueOf(1600f));
+		BONUS.put(HullSize.FRIGATE, Float.valueOf(400f));
+		BONUS.put(HullSize.DESTROYER, Float.valueOf(800f));
+		BONUS.put(HullSize.CRUISER, Float.valueOf(1600f));
+		BONUS.put(HullSize.CAPITAL_SHIP, Float.valueOf(3200f));
 	}
 
 	// Same as vanilla: S-mod adds combat sight radius.

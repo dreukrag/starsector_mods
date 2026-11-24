@@ -1,6 +1,6 @@
 # High Resolution Sensors - Stat Boost
 
-High Resolution Sensors' fleet sensor range bonus goes from +50/75/100/150 to **+200/400/800/1600**
+High Resolution Sensors' fleet sensor range bonus goes from +50/75/100/150 to **+400/800/1600/3200**
 (frigate/destroyer/cruiser/capital). It's still a logistics hullmod, so it counts toward the two-mod limit.
 
 Unchanged from vanilla: diminishing returns across multiple ships, the 10% CR minimum,
@@ -10,11 +10,16 @@ Fleet totals with the vanilla diminishing-returns formula:
 
 | Ships with HRS | Fleet bonus |
 | --- | --- |
-| 1 frigate | 200 |
-| 3 frigates | 440 |
-| 4 cruisers | 2010 |
-| 1 capital | 1600 |
-| 2 capitals, or 1 capital + 2 cruisers | 2810 |
+| 1 frigate | 400 |
+| 3 frigates | 880 |
+| 6 destroyers | 2364 |
+| 1 capital | 3200 |
+| 4 cruisers | 4021 |
+| 1 capital + 3 frigates | 4312 |
+| 2 capitals, or 1 capital + 2 cruisers | 5621 |
+
+Vanilla's diminishing returns are kept on purpose; the per-ship values are set high enough that
+dedicated sensor ships stay worth bringing despite them.
 
 ## How it works
 
@@ -30,7 +35,7 @@ Copy this folder into `<Starsector>/mods/` and enable it in the launcher.
 
 1. `starsector-core/starsector.log` should contain `High Resolution Sensors now use dreukrag.hrsboost.BoostedHighResSensors`.
    A `WARN` line instead means the swap didn't take.
-2. The hullmod's tooltip in refit should read 200/400/800/1600.
+2. The hullmod's tooltip in refit should read 400/800/1600/3200.
 3. The fleet's sensor range in the campaign should rise by the amounts above.
 
 ## Build
