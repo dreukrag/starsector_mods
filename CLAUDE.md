@@ -31,3 +31,11 @@ If `reference/starfarer-api/` is missing, or the game version changed, re-import
   vanilla data files are not in this repo, and overrides break when the game updates them.
 - The API sources here are the public API only; core game logic (e.g. how the refit screen enforces
   hullmod limits) is obfuscated and not available, so state assumptions and log what the mod changes.
+
+## Verified game behaviour
+
+Facts confirmed in-game (they aren't visible in the public API):
+
+- Logistics hullmod limit (0.98a-RC8): only hullmods tagged `Logistics` (`HullMods.TAG_UI_LOGISTICS`)
+  count toward it. Removing the tag from the spec in `onApplicationLoad` exempts that hullmod.
+  See `mods/solar_shielding_unrestricted`.

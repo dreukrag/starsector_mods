@@ -8,6 +8,8 @@ At game load, `SolarShieldingUnrestrictedPlugin` removes the `Logistics` tag fro
 hullmod spec. No vanilla files are overridden, so it's safe to add or remove mid-save.
 Side effect: Solar Shielding no longer appears under the "Logistics" filter in the refit screen.
 
+Status: verified working in-game on Starsector 0.98a-RC8.
+
 ## Install
 
 Copy this folder (`solar_shielding_unrestricted/`) into `<Starsector>/mods/` and enable it in the launcher.
