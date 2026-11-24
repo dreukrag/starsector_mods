@@ -69,11 +69,19 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 
 	// ---- fleet effect ----
 
+	/**
+	 * Called every frame for every fleet. Only the player fleet is handled: it re-applies the
+	 * reduction when a ship's stats were rebuilt (e.g. after a refit) without a fleet sync,
+	 * which would otherwise leave ships without the modifier until the next sync.
+	 * Does nothing when every ship already has the right modifier.
+	 */
 	public void advanceInCampaign(CampaignFleetAPI fleet) {
+		if (fleet == null || !fleet.isPlayerFleet()) return;
+		syncFleet(fleet, false);
 	}
 
 	public boolean withAdvanceInCampaign() {
-		return false;
+		return true;
 	}
 
 	public boolean withOnFleetSync() {
@@ -100,30 +108,56 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 
 	/** Called for every fleet on every fleet sync; cheap when the fleet has no carriers. */
 	public void onFleetSync(CampaignFleetAPI fleet) {
+		syncFleet(fleet, true);
+	}
+
+	/**
+	 * Puts the right reduction on every member. With force=false, members whose modifier is
+	 * already correct are left alone, so calling this every frame doesn't churn the stats.
+	 */
+	public static void syncFleet(CampaignFleetAPI fleet, boolean force) {
 		if (fleet == null || fleet.getFleetData() == null) return;
 		float reduction = getFleetReduction(fleet);
 		List members = fleet.getFleetData().getMembersListCopy();
 		Iterator it = members.iterator();
 		while (it.hasNext()) {
 			FleetMemberAPI m = (FleetMemberAPI) it.next();
-			applyReduction(m.getStats().getSuppliesPerMonth(), reduction);
+			if (m.getStats() == null) continue;
+			MutableStat stat = m.getStats().getSuppliesPerMonth();
+			if (force) {
+				applyReduction(stat, reduction);
+				continue;
+			}
+			float current = currentReduction(stat);
+			float wanted = cappedReduction(stat, reduction);
+			if (Math.abs(current - wanted) > 0.001f) applyReduction(stat, reduction);
 		}
 	}
 
+	/** The reduction this mod currently has on the stat (positive number), 0 if none. */
+	public static float currentReduction(MutableStat stat) {
+		MutableStat.StatMod mod = stat.getFlatStatMod(MOD_ID);
+		return mod == null ? 0f : -mod.value;
+	}
+
 	/**
-	 * Applies a flat reduction to a supplies/month stat, limited so the cost before multipliers
-	 * stays at or above half of what it was, rounded up. Returns the reduction applied.
+	 * The reduction the stat should get: the fleet reduction, limited so the cost before
+	 * multipliers stays at or above half of what it is without this mod, rounded up.
 	 */
-	public static float applyReduction(MutableStat stat, float reduction) {
-		stat.unmodifyFlat(MOD_ID);
+	public static float cappedReduction(MutableStat stat, float reduction) {
 		if (reduction <= 0f) return 0f;
 		float base = stat.getBaseValue();
-		float before = base + base * stat.getPercentMod() / 100f + stat.getFlatMod();
+		float before = base + base * stat.getPercentMod() / 100f + stat.getFlatMod() + currentReduction(stat);
 		if (before <= 0f) return 0f;
 		float floor = (float) Math.ceil(before * (1f - MAX_REDUCTION_FRACTION) - 0.001f);
-		float applied = Math.min(reduction, before - floor);
-		if (applied <= 0f) return 0f;
-		stat.modifyFlat(MOD_ID, -applied, MOD_DESC);
+		return Math.max(0f, Math.min(reduction, before - floor));
+	}
+
+	/** Sets the capped reduction on a supplies/month stat. Returns the reduction applied. */
+	public static float applyReduction(MutableStat stat, float reduction) {
+		float applied = cappedReduction(stat, reduction);
+		stat.unmodifyFlat(MOD_ID);
+		if (applied > 0f) stat.modifyFlat(MOD_ID, -applied, MOD_DESC);
 		return applied;
 	}
 

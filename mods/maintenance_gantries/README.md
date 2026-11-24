@@ -30,6 +30,8 @@ flat modifiers before multipliers. Makeshift Equipment's fleet-wide supply reduc
 - `data/hullmods/hull_mods.csv` defines the hullmod (same columns as vanilla 0.98a-RC8).
 - `MaintenanceGantries` extends `BaseLogisticsHullMod` and implements `HullModFleetEffect`. On every fleet
   sync it sums the active carriers' reductions and puts a capped flat modifier on each member's supplies/month.
+  The game can rebuild a ship's stats (e.g. on refit) without a fleet sync, which drops the modifier, so
+  `advanceInCampaign` also checks the player fleet every frame and restores any missing or outdated modifier.
 - `MakeshiftGrantScript` (added on game load, not saved) checks for the skill and adds the hullmod to the player faction.
 
 This mod adds content, so it isn't a utility mod: don't remove it from a save that has ships using the hullmod.
