@@ -69,14 +69,21 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 
 	// ---- fleet effect ----
 
+	/** How often the player fleet is re-checked, in real-time seconds. */
+	public static final float RECHECK_INTERVAL = 0.25f;
+	private static long lastRecheckNanos = 0L;
+
 	/**
-	 * Called every frame for every fleet. Only the player fleet is handled: it re-applies the
-	 * reduction when a ship's stats were rebuilt (e.g. after a refit) without a fleet sync,
-	 * which would otherwise leave ships without the modifier until the next sync.
-	 * Does nothing when every ship already has the right modifier.
+	 * Called every frame for every fleet. Only the player fleet is handled, at most every
+	 * RECHECK_INTERVAL seconds: it re-applies the reduction when a ship's stats were rebuilt
+	 * (e.g. after a refit) without a fleet sync, which would otherwise leave ships without the
+	 * modifier until the next sync. Does nothing when every ship already has the right modifier.
 	 */
 	public void advanceInCampaign(CampaignFleetAPI fleet) {
 		if (fleet == null || !fleet.isPlayerFleet()) return;
+		long now = System.nanoTime();
+		if (now - lastRecheckNanos < (long) (RECHECK_INTERVAL * 1e9f)) return;
+		lastRecheckNanos = now;
 		syncFleet(fleet, false);
 	}
 
@@ -164,6 +171,9 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 	// ---- tooltip ----
 
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
+		tooltip.addPara("The repair and maintenance systems need some time to readjust after refitting or ship " +
+				"loadout changes; the maintenance bonus may take a moment to apply.", Misc.getGrayColor(), 10f);
+
 		if (isForModSpec || ship == null) return;
 		if (Global.getSettings().getCurrentState() == GameState.TITLE) return;
 		CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
