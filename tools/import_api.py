@@ -60,10 +60,11 @@ def summary_of(text: str, type_match: re.Match) -> str:
     if re.search(r"[;{}]", between):  # doc belongs to something else
         return ""
     body = re.sub(r"^\s*\*\s?", "", doc.group(1), flags=re.MULTILINE)
-    body = body.split("\n@", 1)[0]                      # drop @author/@see tags
+    body = re.split(r"(?m)^\s*@", body, maxsplit=1)[0]  # drop @author/@see tags
     body = re.sub(r"\{@\w+\s+([^}]*)\}", r"\1", body)   # {@link X} -> X
     body = re.sub(r"<[^>]+>", "", body)                  # strip HTML
     body = " ".join(body.split())
+    body = re.sub(r"\s*Copyright \d{4} Fractal Softworks, LLC\.?", "", body).strip()
     m = re.match(r"(.+?[.!?])(\s|$)", body)
     s = m.group(1) if m else body
     return (s[:200] + "…") if len(s) > 200 else s
