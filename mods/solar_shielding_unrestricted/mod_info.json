@@ -1,0 +1,13 @@
+{
+    "id": "solar_shielding_unrestricted",
+    "name": "Solar Shielding Unrestricted",
+    "author": "dreukrag",
+    "version": "0.1.0",
+    "description": "Solar Shielding no longer counts as a logistics hullmod, so it doesn't use up one of the two logistics slots.",
+    "gameVersion": "0.98a-RC8",
+    "utility": true,
+    "modPlugin": "dreukrag.solarshielding.SolarShieldingUnrestrictedPlugin",
+    "jars": [
+        "jars/solar_shielding_unrestricted.jar"
+    ]
+}
