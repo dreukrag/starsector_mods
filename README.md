@@ -14,6 +14,7 @@ Private Starsector mods, centralized in one repo.
 | Mod | What it does |
 | --- | --- |
 | [solar_shielding_unrestricted](mods/solar_shielding_unrestricted) | Solar Shielding no longer counts toward the logistics hullmod limit. |
+| [high_res_sensors_boost](mods/high_res_sensors_boost) | High Resolution Sensors give +200/400/800/1600 sensor range instead of +50/75/100/150. |
 
 ## Building mods
 
