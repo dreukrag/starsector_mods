@@ -67,7 +67,7 @@ public class HrsMissileGuidancePlugin extends BaseEveryFrameCombatPlugin {
 		if (playerCount > 0 && engine.getPlayerShip() != null) {
 			HullModSpecAPI spec = Global.getSettings().getHullModSpec(HrsBoostModPlugin.HULLMOD_ID);
 			String icon = spec != null ? spec.getSpriteName() : null;
-			engine.maintainStatusForPlayerShip(STATUS_KEY, icon, "Sensor-guided missiles",
+			engine.maintainStatusForPlayerShip(STATUS_KEY, icon, "High-resolution sensor guided missiles",
 					"+" + Math.round(playerCount * SPEED_PER_SHIP) + "% speed, +"
 							+ Math.round(playerCount * MANEUVER_PER_SHIP) + "% maneuverability", false);
 		}

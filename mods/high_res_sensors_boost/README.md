@@ -26,7 +26,7 @@ dedicated sensor ships stay worth bringing despite them.
 Each live ship carrying High Resolution Sensors gives **every ship and fighter on its side**
 +5% missile top speed and +10% missile maneuverability (acceleration, turn rate and turn acceleration).
 This stacks per ship up to 3 ships, for a maximum of +15% / +30%; more carriers add nothing. A ship stops counting once destroyed,
-and the player sees the current bonus as a "Sensor-guided missiles" status in combat.
+and the player sees the current bonus as a "High-resolution sensor guided missiles" status in combat.
 It works the same for AI fleets, so enemies carrying the hullmod get it too.
 The "burn through enemy ECM" part of the tooltip is flavour; it doesn't change ECM/ECCM values.
 
@@ -51,7 +51,7 @@ Copy this folder into `<Starsector>/mods/` and enable it in the launcher.
    It should also log `High Resolution Sensors cost set to 5/10/15/25 OP (was ...)`.
 2. In refit, the hullmod should cost 5/10/15/25 OP and its tooltip should read 400/800/1600/3200.
 3. The fleet's sensor range in the campaign should rise by the amounts above.
-4. In combat with a ship carrying the hullmod deployed, a "Sensor-guided missiles" status should show
+4. In combat with a ship carrying the hullmod deployed, a "High-resolution sensor guided missiles" status should show
    the bonus, and missiles should fly visibly faster with several carriers.
 
 ## Build
