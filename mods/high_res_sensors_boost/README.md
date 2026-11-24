@@ -21,6 +21,8 @@ Fleet totals with the vanilla diminishing-returns formula:
 Vanilla's diminishing returns are kept on purpose; the per-ship values are set high enough that
 dedicated sensor ships stay worth bringing despite them.
 
+Status: verified working in-game on Starsector 0.98a-RC8.
+
 ## Combat: fleet-wide missile guidance
 
 Each live ship carrying High Resolution Sensors gives **every ship and fighter on its side**
