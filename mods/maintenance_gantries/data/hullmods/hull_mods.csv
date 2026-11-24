@@ -3,6 +3,8 @@ Repair and Maintenance Gantries,drk_maintenance_gantries,2,,,"req_spaceport, mer
 
 This hullmod decreases the maintenance supply consumption of each ship in the fleet by %s/%s/%s/%s supplies/month for each ship carrying it, depending on that ship's hull size.
 
+The supply cost to recover each ship from deployment is reduced by the same amount, applied after all other modifiers, down to half of that cost, rounded up.
+
 This hullmod cannot reduce a ship's maintenance supply consumption by more than %s, rounded up.
 
-Doubles the minimum crew required by this ship.",Reduces maintenance supply use of every ship in the fleet.,,graphics/hullmods/repair_gantry.png
+Doubles the minimum crew required by this ship.",Reduces maintenance and recovery supply costs of every ship in the fleet.,,graphics/hullmods/repair_gantry.png

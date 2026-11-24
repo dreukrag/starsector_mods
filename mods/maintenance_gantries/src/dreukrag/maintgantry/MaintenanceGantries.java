@@ -29,6 +29,9 @@ import com.fs.starfarer.api.util.Misc;
  * The reduction is a flat modifier on supplies/month. The game applies flat modifiers before
  * multipliers, so Makeshift Equipment's fleet-wide multiplier acts on the already-reduced cost.
  *
+ * Recovery cost (supplies to recover from deployment) is reduced by the same amount, but last:
+ * the cap is half of the cost after all other modifiers, rounded up.
+ *
  * Also doubles the carrier's minimum crew.
  */
 public class MaintenanceGantries extends BaseLogisticsHullMod implements HullModFleetEffect {
@@ -130,42 +133,61 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 		while (it.hasNext()) {
 			FleetMemberAPI m = (FleetMemberAPI) it.next();
 			if (m.getStats() == null) continue;
-			MutableStat stat = m.getStats().getSuppliesPerMonth();
-			if (force) {
-				applyReduction(stat, reduction);
-				continue;
-			}
-			float current = currentReduction(stat);
-			float wanted = cappedReduction(stat, reduction);
-			if (Math.abs(current - wanted) > 0.001f) applyReduction(stat, reduction);
+			setOurFlat(m.getStats().getSuppliesPerMonth(), maintenanceFlat(m.getStats().getSuppliesPerMonth(), reduction), force);
+			setOurFlat(m.getStats().getSuppliesToRecover(), recoveryFlat(m.getStats().getSuppliesToRecover(), reduction), force);
 		}
 	}
 
-	/** The reduction this mod currently has on the stat (positive number), 0 if none. */
-	public static float currentReduction(MutableStat stat) {
+	/** This mod's flat modifier on the stat (negative when reducing), 0 if none. */
+	public static float ourFlat(MutableStat stat) {
 		MutableStat.StatMod mod = stat.getFlatStatMod(MOD_ID);
-		return mod == null ? 0f : -mod.value;
+		return mod == null ? 0f : mod.value;
+	}
+
+	/** The stat's value before multipliers, ignoring this mod. */
+	private static float preMultWithoutUs(MutableStat stat) {
+		float base = stat.getBaseValue();
+		return base + base * stat.getPercentMod() / 100f + stat.getFlatMod() - ourFlat(stat);
+	}
+
+	private static float halfRoundedUp(float v) {
+		return (float) Math.ceil(v * (1f - MAX_REDUCTION_FRACTION) - 0.001f);
 	}
 
 	/**
-	 * The reduction the stat should get: the fleet reduction, limited so the cost before
-	 * multipliers stays at or above half of what it is without this mod, rounded up.
+	 * Maintenance: reduce by the fleet reduction, but keep the cost before multipliers at or above
+	 * half of what it is without this mod, rounded up. Multipliers (Makeshift Equipment) apply after.
+	 * Returns the flat modifier to use (0 or negative).
 	 */
-	public static float cappedReduction(MutableStat stat, float reduction) {
+	public static float maintenanceFlat(MutableStat stat, float reduction) {
 		if (reduction <= 0f) return 0f;
-		float base = stat.getBaseValue();
-		float before = base + base * stat.getPercentMod() / 100f + stat.getFlatMod() + currentReduction(stat);
+		float before = preMultWithoutUs(stat);
 		if (before <= 0f) return 0f;
-		float floor = (float) Math.ceil(before * (1f - MAX_REDUCTION_FRACTION) - 0.001f);
-		return Math.max(0f, Math.min(reduction, before - floor));
+		return -Math.max(0f, Math.min(reduction, before - halfRoundedUp(before)));
 	}
 
-	/** Sets the capped reduction on a supplies/month stat. Returns the reduction applied. */
-	public static float applyReduction(MutableStat stat, float reduction) {
-		float applied = cappedReduction(stat, reduction);
+	/**
+	 * Recovery cost: applied after every other modifier. The final cost is reduced by the fleet
+	 * reduction, but not below half of the cost with all other modifiers, rounded up.
+	 * Because the game applies multipliers after flat modifiers, the flat value is scaled so the
+	 * final cost lands exactly on target. Returns the flat modifier to use (0 or negative).
+	 */
+	public static float recoveryFlat(MutableStat stat, float reduction) {
+		if (reduction <= 0f) return 0f;
+		float mult = stat.getMult();
+		if (mult <= 0f) return 0f;
+		float others = preMultWithoutUs(stat) * mult;
+		if (others <= 0f) return 0f;
+		float target = Math.max(halfRoundedUp(others), others - reduction);
+		if (target >= others) return 0f;
+		return -(others - target) / mult;
+	}
+
+	/** Sets this mod's flat modifier; skips the change when it's already correct unless force. */
+	private static void setOurFlat(MutableStat stat, float flat, boolean force) {
+		if (!force && Math.abs(ourFlat(stat) - flat) <= 0.001f) return;
 		stat.unmodifyFlat(MOD_ID);
-		if (applied > 0f) stat.modifyFlat(MOD_ID, -applied, MOD_DESC);
-		return applied;
+		if (flat < 0f) stat.modifyFlat(MOD_ID, flat, MOD_DESC);
 	}
 
 	// ---- tooltip ----
@@ -173,6 +195,8 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
 		tooltip.addPara("The repair and maintenance systems need some time to readjust after refitting or ship " +
 				"loadout changes; the maintenance bonus may take a moment to apply.", Misc.getGrayColor(), 10f);
+		tooltip.addPara("The refit screen shows maintenance and recovery costs before gantry reductions; " +
+				"the fleet screen shows the actual costs.", Misc.getGrayColor(), 3f);
 
 		if (isForModSpec || ship == null) return;
 		if (Global.getSettings().getCurrentState() == GameState.TITLE) return;
@@ -182,7 +206,8 @@ public class MaintenanceGantries extends BaseLogisticsHullMod implements HullMod
 		float opad = 10f;
 		Color h = Misc.getHighlightColor();
 		float total = getFleetReduction(fleet);
-		tooltip.addPara("Your fleet's gantries currently reduce each ship's maintenance by up to %s supplies/month.",
-				opad, h, "" + Math.round(total));
+		tooltip.addPara("Your fleet's gantries currently reduce each ship's maintenance by up to %s supplies/month, " +
+				"and its recovery cost by up to %s supplies.",
+				opad, h, "" + Math.round(total), "" + Math.round(total));
 	}
 }

@@ -15,7 +15,7 @@ Private Starsector mods, centralized in one repo.
 | --- | --- |
 | [solar_shielding_unrestricted](mods/solar_shielding_unrestricted) | Solar Shielding no longer counts toward the logistics hullmod limit. |
 | [high_res_sensors_boost](mods/high_res_sensors_boost) | High Resolution Sensors give +400/800/1600/3200 sensor range, cost 5/10/15/25 OP, and boost fleet-wide missile speed and maneuverability in combat. |
-| [maintenance_gantries](mods/maintenance_gantries) | New logistics hullmod: each carrier cuts every ship's maintenance by 1/3/7/15 supplies/month (max 50%). Blueprint drop, or granted by Makeshift Equipment. |
+| [maintenance_gantries](mods/maintenance_gantries) | New logistics hullmod: each carrier cuts every ship's maintenance and recovery cost by 1/3/7/15 supplies (max 50%). Blueprint drop, or granted by Makeshift Equipment. |
 
 ## Building mods
 

@@ -6,10 +6,16 @@ vanilla Salvage Gantry icon. Vanilla Salvage Gantry is untouched.
 | | Frigate | Destroyer | Cruiser | Capital |
 | --- | --- | --- | --- | --- |
 | Maintenance cut to every ship in the fleet (supplies/month) | 1 | 3 | 7 | 15 |
+| Recovery cost cut to every ship in the fleet (supplies) | 1 | 3 | 7 | 15 |
 | OP cost | 20 | 40 | 80 | 160 |
 
 - Reductions from every carrier add up (no diminishing returns), and apply to every ship in the fleet, carriers included.
 - No ship's maintenance goes below half its cost, rounded up: a 5/month destroyer stops at 3.
+- **Recovery cost** (supplies to recover from deployment) is cut by the same amount, but applied after every
+  other modifier: it never goes below half of the cost with all other modifiers, rounded up. A ship at 10
+  brought down to 7 by other effects stops at 4; one brought down to 6 stops at 3.
+- The refit screen shows costs before gantry reductions (it builds its own preview of the ship, without the
+  fleet); the fleet screen shows the actual costs the game uses.
 - Carriers only count when not mothballed and at 10% CR or more.
 - Doubles the carrier's minimum crew.
 - Logistics hullmod (counts toward the two-per-ship limit) and requires a dock to install.
@@ -46,7 +52,8 @@ Copy this folder into `<Starsector>/mods/` and enable it in the launcher.
 1. With Makeshift Equipment, the "learned Repair and Maintenance Gantries" message appears; otherwise use the
    console (`addhullmod drk_maintenance_gantries` with Console Commands) or find a blueprint.
 2. Install on 3 frigates: refit should show 20 OP each, and the tooltip a fleet reduction of 3 supplies/month.
-3. A 5/month destroyer's maintenance should read 3 (hover its supplies/month for the "Repair and maintenance gantries" line).
+3. In the **fleet screen** (not refit), a 5/month destroyer's maintenance should read 3, and recovery costs should
+   drop by the fleet reduction down to half.
 
 ## Build
 
