@@ -1,4 +1,4 @@
-# starfarer.api index — Starsector unconfirmed (likely 0.98a; newest source file dated 2025-04-18)
+# starfarer.api index — Starsector 0.98a
 
 1947 types. Format: `kind FQN` — summary → path (relative to this file).
 Grep this file to find a type, then open its source for full signatures and Javadoc.
