@@ -25,6 +25,8 @@ import com.fs.starfarer.api.util.Misc;
  * diminishing returns (HighResSensors.getAdjustedHRSModifier) and S-mod combat sight bonus.
  * Only the per-ship bonus and the tooltip that prints it are replaced, because vanilla
  * keeps its values in a private map.
+ *
+ * Also adds fleet-wide missile guidance in combat; see HrsMissileGuidancePlugin.
  */
 public class BoostedHighResSensors extends HighResSensors {
 
@@ -62,6 +64,10 @@ public class BoostedHighResSensors extends HighResSensors {
 		}
 	}
 
+	public void advanceInCombat(ShipAPI ship, float amount) {
+		HrsMissileGuidancePlugin.ensureAdded(Global.getCombatEngine());
+	}
+
 	public String getSModDescriptionParam(int index, HullSize hullSize) {
 		if (index == 0) return str(COMBAT_BONUS, HullSize.FRIGATE);
 		if (index == 1) return str(COMBAT_BONUS, HullSize.DESTROYER);
@@ -85,6 +91,14 @@ public class BoostedHighResSensors extends HighResSensors {
 				str(BONUS, HullSize.DESTROYER),
 				str(BONUS, HullSize.CRUISER),
 				str(BONUS, HullSize.CAPITAL_SHIP));
+
+		tooltip.addPara("High resolution sensors can also be used during combat to better guide missiles " +
+				"and burn through standard enemy ECM, increasing %s missile top speed by %s and maneuverability " +
+				"by %s for each ship carrying this hullmod.",
+				opad, h,
+				"fleet wide",
+				"" + Math.round(HrsMissileGuidancePlugin.SPEED_PER_SHIP) + "%",
+				"" + Math.round(HrsMissileGuidancePlugin.MANEUVER_PER_SHIP) + "%");
 
 		if (isForModSpec || ship == null) return;
 		if (Global.getSettings().getCurrentState() == GameState.TITLE) return;

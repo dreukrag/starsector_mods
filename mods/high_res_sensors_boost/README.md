@@ -21,13 +21,24 @@ Fleet totals with the vanilla diminishing-returns formula:
 Vanilla's diminishing returns are kept on purpose; the per-ship values are set high enough that
 dedicated sensor ships stay worth bringing despite them.
 
+## Combat: fleet-wide missile guidance
+
+Each live ship carrying High Resolution Sensors gives **every ship and fighter on its side**
++5% missile top speed and +10% missile maneuverability (acceleration, turn rate and turn acceleration).
+This stacks per ship: 3 ships with the hullmod give +15% / +30%. A ship stops counting once destroyed,
+and the player sees the current bonus as a "Sensor-guided missiles" status in combat.
+It works the same for AI fleets, so enemies carrying the hullmod get it too.
+The "burn through enemy ECM" part of the tooltip is flavour; it doesn't change ECM/ECCM values.
+
 ## How it works
 
 `BoostedHighResSensors` extends vanilla's `HighResSensors` and replaces only the per-ship bonus and the tooltip
 (vanilla keeps its values in a private map). At game load, `HrsBoostModPlugin` points the `hiressensors`
 hullmod spec at the new class and sets the OP cost directly on the spec.
-To change the numbers, edit `BONUS` in `BoostedHighResSensors.java` or the `COST_*` values in
-`HrsBoostModPlugin.java`, then rebuild.
+In combat, the first ship with the hullmod to be deployed adds `HrsMissileGuidancePlugin` to the battle,
+which recounts each side every frame and sets the missile bonuses.
+To change the numbers, edit `BONUS` in `BoostedHighResSensors.java` the `COST_*` values in
+`HrsBoostModPlugin.java`, or `SPEED_PER_SHIP` / `MANEUVER_PER_SHIP` in `HrsMissileGuidancePlugin.java`, then rebuild.
 
 ## Install
 
@@ -40,6 +51,8 @@ Copy this folder into `<Starsector>/mods/` and enable it in the launcher.
    It should also log `High Resolution Sensors cost set to 5/10/15/25 OP (was ...)`.
 2. In refit, the hullmod should cost 5/10/15/25 OP and its tooltip should read 400/800/1600/3200.
 3. The fleet's sensor range in the campaign should rise by the amounts above.
+4. In combat with a ship carrying the hullmod deployed, a "Sensor-guided missiles" status should show
+   the bonus, and missiles should fly visibly faster with several carriers.
 
 ## Build
 
