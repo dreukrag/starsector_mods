@@ -39,3 +39,10 @@ Facts confirmed in-game (they aren't visible in the public API):
 - Logistics hullmod limit (0.98a-RC8): only hullmods tagged `Logistics` (`HullMods.TAG_UI_LOGISTICS`)
   count toward it. Removing the tag from the spec in `onApplicationLoad` exempts that hullmod.
   See `mods/solar_shielding_unrestricted`.
+- Replacing a vanilla hullmod's behaviour (0.98a-RC8): subclass its effect class, then call
+  `spec.setEffectClass(<subclass name>)` in `onApplicationLoad`. The game picks up the new class
+  (`spec.getEffect()` returns it), so no `hull_mods.csv` override is needed.
+  See `mods/high_res_sensors_boost`.
+- Hullmod OP costs can be changed at load with `spec.setFrigateCost(...)` etc.
+- Combat-wide effects: a hullmod's `advanceInCombat` can add an `EveryFrameCombatPlugin` to the engine
+  once per battle (guard with `engine.getCustomData()`); `engine.maintainStatusForPlayerShip` shows its status.
