@@ -3,6 +3,8 @@
 Adds a new logistics hullmod, **Repair and Maintenance Gantries** (`drk_maintenance_gantries`), using the
 vanilla Salvage Gantry icon. Vanilla Salvage Gantry is untouched.
 
+Status: verified working in-game on Starsector 0.98a-RC8.
+
 | | Frigate | Destroyer | Cruiser | Capital |
 | --- | --- | --- | --- | --- |
 | Maintenance cut to every ship in the fleet (supplies/month) | 1 | 3 | 7 | 15 |
