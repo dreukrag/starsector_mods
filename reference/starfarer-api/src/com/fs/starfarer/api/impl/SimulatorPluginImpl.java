@@ -134,11 +134,13 @@ public class SimulatorPluginImpl implements SimulatorPlugin, AutofitPluginDelega
 		
 	
 	public static boolean isShowDevCategories() {
+		//if (true) return true;
 		return (Global.getSettings().isDevMode() && !Global.getSettings().getBoolean("playtestingMode")) ||
 				!(Global.getCombatEngine().isInCampaignSim() || Global.getCombatEngine().isInMissionSim());
 	}
 	
 	public static boolean isSimFullyUnlocked() {
+		//if (true) return true;
 		return (Global.getSettings().isDevMode() && !Global.getSettings().getBoolean("playtestingMode")) ||
 				!(Global.getCombatEngine().isInCampaignSim() || Global.getCombatEngine().isInMissionSim());
 	}
@@ -278,6 +280,7 @@ public class SimulatorPluginImpl implements SimulatorPlugin, AutofitPluginDelega
 	public void resetToDefaults(boolean withSave) {
 		uiStateData.settings.clear();
 		uiStateData.settings.put(AGGRO_ID, AGGRO_DEFAULT);
+		uiStateData.settings.put(AGGRO_ID_CORES_ONLY, AGGRO_DEFAULT);
 		uiStateData.settings.put(OFFICERS_CUSTOM_ID, OFFICERS_NONE);
 		uiStateData.settings.put(OFFICERS_ID, OFFICERS_NONE);
 		uiStateData.settings.put(QUALITY_ID, QUALITY_NO_DMODS);

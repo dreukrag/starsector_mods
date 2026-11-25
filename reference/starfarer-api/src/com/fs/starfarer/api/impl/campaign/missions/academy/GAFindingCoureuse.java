@@ -1,9 +1,8 @@
 package com.fs.starfarer.api.impl.campaign.missions.academy;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Map;
-
-import java.awt.Color;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
@@ -319,6 +318,9 @@ public class GAFindingCoureuse extends GABaseMission {
 			//		+ "can be leveraged to compel his cooperation.", opad);
 		} else if (currentStage == Stage.FOLLOW_THE_EXPERIMENTS) {
 			info.addPara(getGoToSystemTextShort(probeSystem) + " and search for the experimental packages possibly being used by Coureuse.",opad);
+			if(Global.getSector().getMemoryWithoutUpdate().getBoolean("$gaFC_foundEmptyProbe")) {
+				info.addPara("Find the missing contents of the empty probe. They are probably in the possession of the scavenger fleet lingering in-system.",opad);
+			}
 			//info.addPara("Visit " + probe_system.getNameString() + " in person, at his planetside chalet.", opad);
 		} else if (currentStage == Stage.SEARCH_ISIRAH) {
 			info.addPara("Search the Isirah system for Scylla Coureuse. Talk to people who might be involved in hiding "

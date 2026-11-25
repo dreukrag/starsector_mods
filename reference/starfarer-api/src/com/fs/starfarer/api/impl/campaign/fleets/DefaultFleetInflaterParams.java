@@ -12,6 +12,7 @@ public class DefaultFleetInflaterParams {
 	public Float rProb;
 	public ShipPickMode mode;
 	public String factionId;
+	public Integer maxTier = null;
 	public Boolean blockHullmodsWithItemReqs = null;
 	
 	public DefaultFleetInflaterParams() {

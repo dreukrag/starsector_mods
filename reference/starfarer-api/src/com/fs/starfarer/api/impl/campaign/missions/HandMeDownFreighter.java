@@ -26,7 +26,7 @@ import com.fs.starfarer.api.util.Misc.Token;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 
 public class HandMeDownFreighter extends HubMissionWithBarEvent {
-	public static float BASE_PRICE_MULT = 0.33f;
+	public static float BASE_PRICE_MULT = 0.4f;
 
 	public static WeightedRandomPicker<String> HULLS = new WeightedRandomPicker<String>();
 	static {
@@ -47,7 +47,7 @@ public class HandMeDownFreighter extends HubMissionWithBarEvent {
 	@Override
 	protected boolean create(MarketAPI createdAt, boolean barEvent) {
 		
-		float probAbort = 0.75f * PirateBaseManager.getInstance().getStandardTimeFactor();
+		float probAbort = 0.75f * PirateBaseManager.getStandardTimeFactor();
 		if (rollProbability(probAbort)) return false;
 		
 		if (barEvent) {
@@ -90,14 +90,20 @@ public class HandMeDownFreighter extends HubMissionWithBarEvent {
 		member = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
 		assignShipName(member, Factions.INDEPENDENT);
 		
+		boolean worse = Misc.isExtended() && Global.getSettings().getBoolean("ext_worseHandMeDownFreighter");
+		
 		int dMods = 2 + genRandom.nextInt(3);
+		if (worse) dMods = 5;
+		
 		DModManager.addDMods(variant, true, dMods, genRandom);
-		DModManager.removeDMod(variant, HullMods.COMP_STORAGE);
+		if (!worse) DModManager.removeDMod(variant, HullMods.COMP_STORAGE);
 		
 		member.getCrewComposition().setCrew(100000);
 		member.getRepairTracker().setCR(0.7f);
 		
-		price = getRoundNumber(variant.getHullSpec().getBaseValue() * BASE_PRICE_MULT);
+		float extMult = Misc.isExtended() ? Global.getSettings().optFloatFromArray("ext_shipBuyPriceMult", variant.getHullSpec().getHullSize().ordinal() - 2, 1f) : 1f;
+		if (Misc.isExtended()) extMult *= Global.getSettings().getFloat("ext_worseHandMeDownFreighterPriceMult");				
+		price = getRoundNumber(variant.getHullSpec().getBaseValue() * BASE_PRICE_MULT * extMult);
 		
 		setRepFactionChangesTiny();
 		setRepPersonChangesVeryLow();

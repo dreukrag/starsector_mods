@@ -4,7 +4,7 @@
     "author": "dreukrag",
     "version": "0.1.0",
     "description": "High Resolution Sensors give +400/800/1600/3200 fleet sensor range (frigate/destroyer/cruiser/capital) instead of +50/75/100/150, cost 5/10/15/25 OP, and give fleet-wide +5% missile speed / +10% maneuverability per ship in combat (up to 3 ships). Still a logistics hullmod.",
-    "gameVersion": "0.98a-RC8",
+    "gameVersion": "0.98.5a",
     "utility": true,
     "modPlugin": "dreukrag.hrsboost.HrsBoostModPlugin",
     "jars": [

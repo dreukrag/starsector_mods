@@ -64,12 +64,14 @@ public class CoreRuleTokenReplacementGeneratorImpl implements RuleTokenReplaceme
 		
 		map.put("$playerFirstName", Global.getSector().getCharacterData().getPerson().getName().getFirst());
 		map.put("$playerFirstname", Global.getSector().getCharacterData().getPerson().getName().getFirst());
+		map.put("$PlayerFirstName", Global.getSector().getCharacterData().getPerson().getName().getFirst());
 		String last = Global.getSector().getCharacterData().getPerson().getName().getLast();
 		if (last == null || last.isBlank()) {
 			last = Global.getSector().getCharacterData().getPerson().getName().getFirst();
 		}
 		map.put("$playerLastName", last);
 		map.put("$playerLastname", last);
+		map.put("$PlayerLastName", last);
 		
 		PersonAPI playerPerson = Global.getSector().getPlayerPerson();
 		String honorific = Global.getSector().getCharacterData().getHonorific();
@@ -288,6 +290,8 @@ public class CoreRuleTokenReplacementGeneratorImpl implements RuleTokenReplaceme
 			}
 			
 			map.put("$PersonName", person.getName().getFullName());
+			map.put("$PersonFirstName", person.getName().getFirst());
+			map.put("$PersonLastName", person.getName().getLast());
 			map.put("$personName", person.getName().getFullName());
 			map.put("$personFirstName", person.getName().getFirst());
 			map.put("$personLastName", person.getName().getLast());

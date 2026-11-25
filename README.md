@@ -9,6 +9,13 @@ Private Starsector mods, centralized in one repo.
 - `tools/import_api.py` — (re)builds `reference/starfarer-api/` from the game install.
 - `tools/build_mod.sh <mod_id>` — compiles a mod's `src/` into `jars/<mod_id>.jar`.
 
+## Game versions
+
+| Branch | Game version | Notes |
+| --- | --- | --- |
+| `main` | 0.98a-RC8 | Mods verified in-game. |
+| `98.5` | 0.98.5a | Same mods rebuilt against the 0.98.5a API (Java 16 bytecode). Not yet verified in-game. |
+
 ## Mods
 
 | Mod | What it does |
@@ -26,6 +33,7 @@ tools/build_mod.sh <mod_id>
 Without the game installed, this compiles against `reference/starfarer-api/src` and downloads the game's
 third-party libraries (LWJGL, org.json, log4j, XStream) from Maven Central into `.build/`.
 With the game installed, set `STARSECTOR_CORE=<Starsector>/starsector-core` to compile against the real jars.
+Jars target Java 16 (0.98.5a's own API code needs it); set `JAVA_RELEASE=<n>` to change that.
 
 ## Updating the API reference
 
