@@ -34,7 +34,7 @@ If `reference/starfarer-api/` is missing, or the game version changed, re-import
 
 ## Game version on this branch
 
-This branch (`98.5`) targets **0.98.5a**; `main` targets 0.98a-RC8. Since 0.98.5a the API sources use Java 16
+This branch (`98.5`) targets **0.98.5a-RC6**; `main` targets 0.98a-RC8. Since 0.98.5a the API sources use Java 16
 syntax, so `tools/build_mod.sh` compiles with `--release 16`. The behaviour below was verified on 0.98a-RC8;
 nothing it relies on changed in the 0.98.5a API, but re-verify in-game before relying on it.
 

@@ -14,7 +14,7 @@ Private Starsector mods, centralized in one repo.
 | Branch | Game version | Notes |
 | --- | --- | --- |
 | `main` | 0.98a-RC8 | Mods verified in-game. |
-| `98.5` | 0.98.5a | Same mods rebuilt against the 0.98.5a API (Java 16 bytecode). Not yet verified in-game. |
+| `98.5` | 0.98.5a-RC6 | Same mods rebuilt against the 0.98.5a API (Java 16 bytecode). Not yet verified in-game. |
 
 ## Mods
 
