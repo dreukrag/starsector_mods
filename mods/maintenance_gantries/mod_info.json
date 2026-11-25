@@ -1,0 +1,12 @@
+{
+    "id": "maintenance_gantries",
+    "name": "Repair and Maintenance Gantries",
+    "author": "dreukrag",
+    "version": "0.1.0",
+    "description": "Adds the Repair and Maintenance Gantries logistics hullmod: each ship carrying it cuts the maintenance and recovery cost of every ship in the fleet by 1/3/7/15 supplies (at most 50% per ship). Found as a blueprint, or granted by Makeshift Equipment.",
+    "gameVersion": "0.98a-RC8",
+    "modPlugin": "dreukrag.maintgantry.MaintenanceGantriesModPlugin",
+    "jars": [
+        "jars/maintenance_gantries.jar"
+    ]
+}

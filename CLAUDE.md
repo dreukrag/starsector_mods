@@ -46,3 +46,12 @@ Facts confirmed in-game (they aren't visible in the public API):
 - Hullmod OP costs can be changed at load with `spec.setFrigateCost(...)` etc.
 - Combat-wide effects: a hullmod's `advanceInCombat` can add an `EveryFrameCombatPlugin` to the engine
   once per battle (guard with `engine.getCustomData()`); `engine.maintainStatusForPlayerShip` shows its status.
+- New hullmods: add a row to the mod's own `data/hullmods/hull_mods.csv` with the vanilla columns
+  (header in `mods/maintenance_gantries/data/hullmods/hull_mods.csv`); vanilla sprites can be referenced by path.
+  A `tier` and no `no_drop` tag puts it in the blueprint drop pool. See `mods/maintenance_gantries`.
+- Fleet-wide per-ship stat changes: a `HullModFleetEffect` can put modifiers on each member's stats in
+  `onFleetSync`; they show on the fleet screen and drive real costs. Re-check from `advanceInCampaign`
+  (player fleet, throttled) in case stats are rebuilt without a sync.
+- The refit screen previews ships from scratch (`stats.getFleetMember()` is null there), so modifiers
+  applied from outside the ship's own hullmods/skills don't show in refit; the fleet screen shows them.
+
