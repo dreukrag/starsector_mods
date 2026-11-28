@@ -1,0 +1,12 @@
+{
+    "id": "cass_economy_overhaul",
+    "name": "Cass Economy Overhaul",
+    "author": "dreukrag",
+    "version": "0.1.0",
+    "description": "Colony crises come one major faction at a time (pirates and the Luddic Path still raid), and the Remnant nexus threatening your colony is revealed on the map. Settings in-game with LunaLib (optional), otherwise in data/config/settings.json.",
+    "gameVersion": "0.98.5a-RC6",
+    "modPlugin": "dreukrag.casseconomy.CassModPlugin",
+    "jars": [
+        "jars/cass_economy_overhaul.jar"
+    ]
+}

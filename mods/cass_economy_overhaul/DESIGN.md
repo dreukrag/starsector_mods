@@ -36,7 +36,7 @@ Every value below is a setting. Where it lives:
 
 - The progress bar runs 0–600 and fills from each faction's monthly points × the colony defense multiplier,
   capped by `ha_maxMonthlyProgress`.
-- Once progress passes a random point between 425 and 500, one faction's crisis is picked. The odds are its base
+- When progress reaches 500, one faction's crisis is picked (cancelled if progress drops back to 425). The odds are its base
   frequency × its share of the points. The same faction can't be picked twice in a row.
 - At 600 the crisis fires, and progress resets to 0–400. The roll favours the low end, so about 133 on average.
 - **There is no check across factions.** Persean League, Sindrian Diktat and Luddic Church only skip a new crisis while
@@ -61,9 +61,14 @@ How we tell that a major crisis is running:
 | Tri-Tachyon mercenary attack | `TTMercenaryAttack.get()` |
 | Hegemony AI inspection | Scan the intel list for `HegemonyInspectionIntel` that hasn't ended |
 
-A background script watches the crisis stage. If it picked a major faction while another major crisis is running
-(or during the cooldown), the pick is cancelled with `resetHA_EVENT()`, so the game picks again and pirates or the
-Luddic Path can be chosen instead. No vanilla classes are replaced.
+A background script (`CrisisGateScript`) checks the crisis stage several times a day. If it picked a major faction
+while another major crisis is running (or during the cooldown), the pick is cleared quietly (no "crisis averted"
+notice) and re-picked among pirates, the Luddic Path and the Remnant with vanilla's weighting. If none of those can
+strike, the bar is held at 499, just below the pick point, until the block lifts. No vanilla classes are replaced,
+and the script isn't saved; its state is two sector memory keys.
+
+Not covered: a single jump from below 500 to 600 in one step (picked and fired at once). Normal monthly progress and
+"Escalate crisis" (595) don't do that.
 
 | Setting | Default | Meaning |
 | --- | --- | --- |

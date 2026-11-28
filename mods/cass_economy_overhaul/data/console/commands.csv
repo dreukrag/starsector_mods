@@ -1,0 +1,2 @@
+command,class,tags,syntax,help
+cass_status,dreukrag.casseconomy.console.CassStatus,"cass,campaign",cass_status,"Shows Cass Economy Overhaul settings, the running major colony crisis, the crisis cooldown and the Colony Crises bar."

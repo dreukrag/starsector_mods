@@ -1,0 +1,3 @@
+# Compile-only dependencies (optional at runtime). "<file name> <url>", pinned versions.
+LunaLib-2.1.0.jar https://raw.githubusercontent.com/Lukas22041/LunaLib/2.1.0/jars/LunaLib.jar
+lw_Console-4.0.9.jar https://raw.githubusercontent.com/LazyWizard/console-commands/c5718df92c64d29c6a5fe7f4165f52127470d343/jars/lw_Console.jar

@@ -1,0 +1,8 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+cass_colonyHeader,Colony management,Header,Colony management,,,,,
+cass_colony_enabled,Enable colony module,Boolean,true,,Turns the whole colony management module on or off.,,,
+cass_crisis_gateMajor,One major crisis at a time,Boolean,true,,"While a Hegemony, Tri-Tachyon, Persean League, Sindrian Diktat or Luddic Church crisis is running (or during the cooldown), no other major-faction crisis can be picked. Pirates, the Luddic Path and the Remnant are never blocked. If none of them can strike either, the crisis bar holds just below the point where a crisis is picked.",,,
+cass_crisis_cooldownDays,Cooldown after a major crisis (days),Int,60,,Days after a major crisis ends before the next major crisis can be picked.,0,720,
+cass_crisis_resetMin,Bar reset after a crisis: minimum,Int,0,,Lowest progress the crisis bar resets to after a crisis fires. Vanilla: 0.,0,400,
+cass_crisis_resetMax,Bar reset after a crisis: maximum,Int,400,,Highest progress the crisis bar resets to after a crisis fires. Vanilla: 400. The roll favours the low end.,0,400,
+cass_crisis_revealNexus,Reveal Remnant nexus,Boolean,true,,Adds an intel entry pointing at a Remnant nexus in a system with your colonies and makes the station visible from anywhere in the system.,,,

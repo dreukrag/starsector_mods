@@ -1,0 +1,17 @@
+{
+    # Cass Economy Overhaul defaults. With LunaLib installed, its in-game Mod Settings menu
+    # (Shift+F2) overrides these. Without it, edit the values here and restart the game.
+
+    # --- Colony management ---
+    "cass_colony_enabled": true,
+    # Only one major-faction crisis (Hegemony, Tri-Tachyon, Persean League, Sindrian Diktat,
+    # Luddic Church) at a time. Pirates, the Luddic Path and the Remnant are never blocked.
+    "cass_crisis_gateMajor": true,
+    # Days after a major crisis ends before the next major one can be picked.
+    "cass_crisis_cooldownDays": 60,
+    # Progress the crisis bar resets to after a crisis fires (vanilla 0 to 400, favouring the low end).
+    "cass_crisis_resetMin": 0,
+    "cass_crisis_resetMax": 400,
+    # Show the Remnant nexus threatening your colony on the map and intel screen.
+    "cass_crisis_revealNexus": true,
+}

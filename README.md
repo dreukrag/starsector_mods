@@ -21,6 +21,7 @@ The last 0.98a-RC8 version of these mods is commit `bcbd189` (`git checkout bcbd
 | [solar_shielding_unrestricted](mods/solar_shielding_unrestricted) | Solar Shielding no longer counts toward the logistics hullmod limit. |
 | [high_res_sensors_boost](mods/high_res_sensors_boost) | High Resolution Sensors give +400/800/1600/3200 sensor range, cost 5/10/15/25 OP, and boost fleet-wide missile speed and maneuverability in combat. |
 | [maintenance_gantries](mods/maintenance_gantries) | New logistics hullmod: each carrier cuts every ship's maintenance and recovery cost by 1/3/7/15 supplies (max 50%). Blueprint drop, or granted by Makeshift Equipment. |
+| [cass_economy_overhaul](mods/cass_economy_overhaul) | Work in progress. Colony crises come one major faction at a time (60-day cooldown; pirates, Luddic Path and Remnant unaffected) and a Remnant nexus near your colonies is revealed. Optional LunaLib settings menu and Console Commands `cass_status`. See its DESIGN.md. |
 
 ## Building mods
 

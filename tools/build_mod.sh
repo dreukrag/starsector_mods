@@ -45,6 +45,19 @@ else
   SRCPATH=(-sourcepath "$REPO/reference/starfarer-api/src")
 fi
 
+# Compile-only jars of other mods (e.g. LunaLib), listed per mod in tools/compile_libs/<mod>.txt as
+# "<file name> <url>" lines. Downloaded once into .build/extlibs; never packaged into the mod's jar.
+LIBLIST="$REPO/tools/compile_libs/$MOD.txt"
+if [ -f "$LIBLIST" ]; then
+  EXT="$REPO/.build/extlibs"
+  mkdir -p "$EXT"
+  while read -r name url; do
+    [ -z "${name:-}" ] || [ "${name:0:1}" = "#" ] && continue
+    [ -f "$EXT/$name" ] || curl -sSfL -o "$EXT/$name" "$url"
+    CP="$CP:$EXT/$name"
+  done < "$LIBLIST"
+fi
+
 mapfile -t SOURCES < <(find "$MOD_DIR/src" -name '*.java')
 set +e
 javac -encoding Cp1252 -proc:none -nowarn --release "${JAVA_RELEASE:-16}" \
