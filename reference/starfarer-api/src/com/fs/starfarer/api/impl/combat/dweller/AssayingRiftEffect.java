@@ -107,7 +107,7 @@ public class AssayingRiftEffect implements OnFireEffectPlugin, OnHitEffectPlugin
 //				source.setHitpoints(Math.min(source.getMaxHitpoints(), source.getHitpoints() + HEAL_AMOUNT));
 //			}
 			
-			if (!targetShip.isHulk()) {
+			if (!targetShip.isWasHulk()) {
 				WeightedRandomPicker<ShipAPI> healTargets = new WeightedRandomPicker<>();
 				WeightedRandomPicker<ShipAPI> healNeedLess = new WeightedRandomPicker<>();
 				for (ShipAPI other : Global.getCombatEngine().getShips()) {

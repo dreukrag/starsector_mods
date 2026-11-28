@@ -109,6 +109,8 @@ public class DebugFlags {
 		
 		ALLOW_ALL_CONTACT_MISSIONS = dev;
 		
+		ALLOW_KNOWN_HULLMOD_DROPS = true;
+		
 	}
 	
 	public static void setPlaytestingConfig() {

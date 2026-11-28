@@ -92,4 +92,6 @@ public interface FleetMemberStatusAPI {
 
 	void updateNumStatusesFromMember();
 
+	float[][] getArmorCellFractions(int index);
+
 }

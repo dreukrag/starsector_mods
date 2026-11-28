@@ -17,6 +17,7 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
+import com.fs.starfarer.api.impl.combat.dweller.DwellerShroud;
 import com.fs.starfarer.api.util.Misc;
 
 public class SwarmLauncherEffect implements OnFireEffectPlugin, EveryFrameWeaponEffectPlugin, SwarmLaunchingWeapon {
@@ -71,6 +72,7 @@ public class SwarmLauncherEffect implements OnFireEffectPlugin, EveryFrameWeapon
 		}
 		
 		RoilingSwarmEffect swarm = RoilingSwarmEffect.getSwarmFor(ship);
+		if (swarm instanceof DwellerShroud) swarm = null;
 		int active = swarm == null ? 0 : swarm.getNumActiveMembers();
 		int required = FRAGMENT_NUM.get(getWingId(weapon));
 		boolean disable = active < required;
@@ -184,6 +186,7 @@ public class SwarmLauncherEffect implements OnFireEffectPlugin, EveryFrameWeapon
 		currWing = leader.getWing();
 		
 		RoilingSwarmEffect sourceSwarm = RoilingSwarmEffect.getSwarmFor(weapon.getShip());
+		if (sourceSwarm instanceof DwellerShroud) sourceSwarm = null;
 		if (sourceSwarm != null) {
 			RoilingSwarmEffect swarm = FragmentSwarmHullmod.createSwarmFor(leader);
 			
@@ -208,6 +211,7 @@ public class SwarmLauncherEffect implements OnFireEffectPlugin, EveryFrameWeapon
 	
 	public int getPreferredNumFragmentsToFireConsideringAllWeapons(ShipAPI ship) {
 		RoilingSwarmEffect swarm = RoilingSwarmEffect.getSwarmFor(ship);
+		if (swarm instanceof DwellerShroud) swarm = null;
 		if (swarm == null) return 0;
 		
 		int req = 0;

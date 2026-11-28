@@ -864,6 +864,7 @@ public class CoreAutofitPlugin extends BaseAutofitPlugin {
 			if (!mod.hasTag(Tags.DO_NOT_APPLY_HULLMOD_DURING_AUTOFIT)) {
 				mod.getEffect().applyEffectsBeforeShipCreation(ship.getHullSize(), ship.getMutableStats(), mod.getId());
 				mod.getEffect().applyEffectsAfterShipCreation(ship, mod.getId());
+				mod.getEffect().applyEffectsAfterShipCreation2ndPass(ship, mod.getId());
 			}
 		}
 		return cost;
@@ -1851,14 +1852,15 @@ public class CoreAutofitPlugin extends BaseAutofitPlugin {
 		}
 		
 		List<OfficerDataAPI> officers = new ArrayList<OfficerDataAPI>();
-		int max = (int) fleet.getCommander().getStats().getOfficerNumber().getModifiedValue();
-		int count = 0;
+		//int max = (int) fleet.getCommander().getStats().getOfficerNumber().getModifiedValue();
+		//int count = 0;
 		for (OfficerDataAPI officer : fleet.getFleetData().getOfficersCopy()) {
-			boolean merc = Misc.isMercenary(officer.getPerson());
-			if (!merc) {
-				count++;
-			}
-			if (count > max && !merc) continue;
+//			boolean merc = Misc.isMercenary(officer.getPerson());
+//			if (!merc) {
+//				count++;
+//			}
+			if (!officer.isActivated()) continue;
+			//if (count > max && !merc) continue;
 			
 			boolean found = false;
 			for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {

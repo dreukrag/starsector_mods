@@ -378,6 +378,7 @@ public class DefaultFleetInflater implements FleetInflater, AutofitPluginDelegat
 						}
 						
 						boolean tierAvailable = random.nextFloat() < p;
+						if (this.p.maxTier != null && this.p.maxTier < tier) tierAvailable = false;
 						if (!tierAvailable && foundSome) continue;
 						//if (random.nextFloat() >= p) continue;
 						

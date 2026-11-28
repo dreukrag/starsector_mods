@@ -32,6 +32,13 @@ If `reference/starfarer-api/` is missing, or the game version changed, re-import
 - The API sources here are the public API only; core game logic (e.g. how the refit screen enforces
   hullmod limits) is obfuscated and not available, so state assumptions and log what the mod changes.
 
+## Target game version
+
+All development targets **Starsector 0.98.5a-RC6** (see `reference/starfarer-api/VERSION`). Older game versions
+aren't supported; the last 0.98a-RC8 state is commit `bcbd189` in `main`'s history.
+Since 0.98.5a the API sources use Java 16 syntax, so `tools/build_mod.sh` compiles with `--release 16`.
+The behaviour below was verified on 0.98a-RC8; nothing it relies on changed in the 0.98.5a API.
+
 ## Verified game behaviour
 
 Facts confirmed in-game (they aren't visible in the public API):

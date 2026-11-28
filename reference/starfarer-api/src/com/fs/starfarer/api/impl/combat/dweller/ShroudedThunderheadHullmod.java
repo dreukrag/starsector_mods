@@ -179,6 +179,7 @@ public class ShroudedThunderheadHullmod extends HumanShipShroudedHullmod {
 		
 		float prob = data.getHitProbability();
 		DwellerShroud shroud = DwellerShroud.getShroudFor(ship);
+		if (shroud == null) return; // failsafe
 		shroud.getParams().flashProbability = Math.min(0.1f + prob * 1.4f, 1f);
 		//shroud.getParams().alphaMult = 0.5f; 
 		

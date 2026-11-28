@@ -15,5 +15,6 @@ public interface AdmiralAIPlugin {
 	void advance(float amount);
 	default void setNoOrders(boolean noOrders) {}
 	default void setDelegate(AdmiralPluginDelegate delegate) {}
+	AdmiralAIConfig getConfig();
 }
 

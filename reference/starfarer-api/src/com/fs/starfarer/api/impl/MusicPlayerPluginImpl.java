@@ -32,6 +32,10 @@ public class MusicPlayerPluginImpl implements MusicPlayerPluginWithVolumeControl
 	public static String MUSIC_ENCOUNTER_MYSTERIOUS_AGGRO = "music_encounter_mysterious";
 	public static String MUSIC_ENCOUNTER_MYSTERIOUS_NON_AGGRESSIVE = "music_encounter_mysterious_non_aggressive";
 	public static String MUSIC_ENCOUNTER_NEUTRAL = "music_encounter_neutral";
+	public static String MUSIC_ENCOUNTER_DISCOVERY = "music_encounter_discovery";
+	public static String MUSIC_ENCOUNTER_TENSE = "music_encounter_tense";
+	public static String MUSIC_ENCOUNTER_ANOMALOUS = "music_encounter_anomalous";
+	public static String MUSIC_ENCOUNTER_DIKTAT = "music_encounter_diktat";
 	public static String MUSIC_GALATIA_ACADEMY = "music_galatia_academy";
 	
 	
@@ -217,6 +221,9 @@ public class MusicPlayerPluginImpl implements MusicPlayerPluginWithVolumeControl
 			if (Entities.DERELICT_GATEHAULER.equals(token.getCustomEntityType())) {
 				return MUSIC_ENCOUNTER_MYSTERIOUS_NON_AGGRESSIVE;
 			}
+			if (Entities.ASTEROID_BASE.equals(token.getCustomEntityType())) {
+				return MUSIC_ENCOUNTER_NEUTRAL;
+			}
 			
 			if (Entities.DEBRIS_FIELD_SHARED.equals(token.getCustomEntityType())) {
 				return "music_survey_and_scavenge";
@@ -314,6 +321,11 @@ public class MusicPlayerPluginImpl implements MusicPlayerPluginWithVolumeControl
 				}
 				return MUSIC_GALATIA_ACADEMY;
 			}
+			
+			//if (	market.getPrimaryEntity() != null &&
+			//		market.getPrimaryEntity().getId().equals("58966elysium")) {
+			//	return MUSIC_ENCOUNTER_NEUTRAL;
+			//}
 			
 			FactionAPI faction = market.getFaction();
 			if (faction != null) {
