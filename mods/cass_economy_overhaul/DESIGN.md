@@ -100,12 +100,18 @@ Vanilla (`FleetEncounterContext.generatePlayerLoot`): battle value = enemy FP lo
 the player fleet's `Stats.BATTLE_SALVAGE_MULT_FLEET`. A random share of that (`salvageFractionCreditsMin`/`Max`)
 becomes credits, and the rest becomes metals, supplies, fuel and heavy machinery.
 
-We add to `BATTLE_SALVAGE_MULT_FLEET` on the player fleet. Only the player's loot reads it.
+Only the **credits** go up; commodity and item loot stays vanilla. (Raising `BATTLE_SALVAGE_MULT_FLEET` would
+raise both, and raising the credit share alone would take value away from commodity loot.)
+
+The dialog pays the battle credits first, then offers "Pick through the wreckage". Opening that fires
+`reportEncounterLootGenerated(context, loot)`, and there we add `context.getCreditsLooted() × (loot_creditMult − 1)`
+with a line in the text panel. Nexerelin's battle dialog extends vanilla's and keeps this flow.
+Edge case to test: a battle with credits but no loot never opens the loot screen, so it gets no bonus.
 
 | Setting | Default | Meaning |
 | --- | --- | --- |
 | `economy_enabled` | true | Module on/off |
-| `loot_battleMult` | 2.0 | Battle credits and commodity loot × this |
+| `loot_creditMult` | 3.0 | Battle credits × this (loot unchanged) |
 
 ### AI cores
 
@@ -170,7 +176,7 @@ are affected.
 
 1. ~~Extended mode?~~ Not played. The `ext_*` settings (salaries, combat bonus pay, tariffs, drops) only apply
    in Extended mode, so the mod ignores them.
-2. Defaults above (cooldown 60 days, loot ×2, AI cores ×1.5/×2/×3, CR ×0.33 for 30 days) — OK as a starting point?
+2. Defaults above (cooldown 60 days, battle credits ×3, AI cores ×1.5/×2/×3, CR ×0.33 for 30 days) — OK as a starting point?
 
 ## Build order
 
