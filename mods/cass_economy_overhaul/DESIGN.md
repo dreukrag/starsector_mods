@@ -1,6 +1,6 @@
 # Cass Economy Overhaul — design
 
-Target game version: **0.98.5a** (API reference in `reference/starfarer-api/`).
+Target game version: **0.98.5a-RC6** (API reference in `reference/starfarer-api/`).
 Mod id `cass_economy_overhaul`, Java package `dreukrag.casseconomy`.
 
 Three modules, each with its own on/off switch and numbers:

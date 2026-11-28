@@ -10,7 +10,9 @@
 #   - Otherwise it compiles against reference/starfarer-api/src plus the game's third-party
 #     libraries downloaded from Maven Central into .build/libs (cached, gitignored).
 #
-# Output targets Java 8 bytecode, which runs on any Java the game ships with.
+# Output targets Java 16 bytecode by default (override with JAVA_RELEASE=<n>). Starting with 0.98.5a the
+# game's own API sources use Java 16 syntax (pattern-matching instanceof), so the game runs on Java 16+
+# and 16 is the lowest level that can compile against them.
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -44,9 +46,16 @@ else
 fi
 
 mapfile -t SOURCES < <(find "$MOD_DIR/src" -name '*.java')
-javac -encoding Cp1252 -proc:none -nowarn -source 8 -target 8 \
+set +e
+javac -encoding Cp1252 -proc:none -nowarn --release "${JAVA_RELEASE:-16}" \
   -cp "$CP" "${SRCPATH[@]}" -d "$OUT" "${SOURCES[@]}" 2>&1 \
-  | grep -vE '^(Picked up|warning:|Note:)|bootstrap class path|^[0-9]+ warnings?$' || true
+  | grep -vE '^(Picked up|warning:|Note:)|bootstrap class path|^[0-9]+ warnings?$'
+JAVAC_STATUS=${PIPESTATUS[0]}
+set -e
+if [ "$JAVAC_STATUS" -ne 0 ]; then
+  echo "error: compilation failed; existing jar left unchanged" >&2
+  exit 1
+fi
 
 # Package only the mod's own classes, never the API classes compiled from -sourcepath.
 JAR="$MOD_DIR/jars/$MOD.jar"
