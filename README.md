@@ -9,12 +9,10 @@ Private Starsector mods, centralized in one repo.
 - `tools/import_api.py` — (re)builds `reference/starfarer-api/` from the game install.
 - `tools/build_mod.sh <mod_id>` — compiles a mod's `src/` into `jars/<mod_id>.jar`.
 
-## Game versions
+## Game version
 
-| Branch | Game version | Notes |
-| --- | --- | --- |
-| `main` | 0.98a-RC8 | Mods verified in-game. |
-| `98_5` | 0.98.5a-RC6 | Same mods rebuilt against the 0.98.5a API (Java 16 bytecode). Not yet verified in-game. |
+Targets **Starsector 0.98.5a-RC6**. Jars are built as Java 16 bytecode, which 0.98.5a requires.
+The last 0.98a-RC8 version of these mods is commit `bcbd189` (`git checkout bcbd189`).
 
 ## Mods
 
