@@ -168,9 +168,8 @@ are affected.
 
 ## Open questions
 
-1. Are you playing the new **Extended** mode (0.98.5)? It adds crew and officer salary multipliers, officer combat
-   bonus pay after battles, different tariffs, ship buy prices and drop rates (`ext_*` settings). If so, the
-   economy numbers above may need to be higher, or we could also expose some `ext_*` values.
+1. ~~Extended mode?~~ Not played. The `ext_*` settings (salaries, combat bonus pay, tariffs, drops) only apply
+   in Extended mode, so the mod ignores them.
 2. Defaults above (cooldown 60 days, loot ×2, AI cores ×1.5/×2/×3, CR ×0.33 for 30 days) — OK as a starting point?
 
 ## Build order
