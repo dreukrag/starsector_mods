@@ -1,6 +1,6 @@
-# starfarer.api index — Starsector 0.98a-RC8
+# starfarer.api index — Starsector 0.98.5a
 
-1947 types. Format: `kind FQN` — summary → path (relative to this file).
+2020 types. Format: `kind FQN` — summary → path (relative to this file).
 Grep this file to find a type, then open its source for full signatures and Javadoc.
 
 
@@ -127,6 +127,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.campaign.SectorGenProgress` → [src/com/fs/starfarer/api/campaign/SectorGenProgress.java](src/com/fs/starfarer/api/campaign/SectorGenProgress.java)
 - `interface com.fs.starfarer.api.campaign.SectorGeneratorPlugin` → [src/com/fs/starfarer/api/campaign/SectorGeneratorPlugin.java](src/com/fs/starfarer/api/campaign/SectorGeneratorPlugin.java)
 - `interface com.fs.starfarer.api.campaign.SectorProcGenPlugin` → [src/com/fs/starfarer/api/campaign/SectorProcGenPlugin.java](src/com/fs/starfarer/api/campaign/SectorProcGenPlugin.java)
+- `interface com.fs.starfarer.api.campaign.SkillSelectorDialogDelegate` → [src/com/fs/starfarer/api/campaign/SkillSelectorDialogDelegate.java](src/com/fs/starfarer/api/campaign/SkillSelectorDialogDelegate.java)
 - `interface com.fs.starfarer.api.campaign.SpawnPointPlugin` — Use com.fs.starfarer.api.EveryFrameScript instead. → [src/com/fs/starfarer/api/campaign/SpawnPointPlugin.java](src/com/fs/starfarer/api/campaign/SpawnPointPlugin.java)
 - `class com.fs.starfarer.api.campaign.SpecialItemData` → [src/com/fs/starfarer/api/campaign/SpecialItemData.java](src/com/fs/starfarer/api/campaign/SpecialItemData.java)
 - `interface com.fs.starfarer.api.campaign.SpecialItemPlugin` → [src/com/fs/starfarer/api/campaign/SpecialItemPlugin.java](src/com/fs/starfarer/api/campaign/SpecialItemPlugin.java)
@@ -216,6 +217,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 
 ## com.fs.starfarer.api.campaign.listeners
 
+- `interface com.fs.starfarer.api.campaign.listeners.AppliedPostCombatCRLossToPlayerFleetMemberListener` → [src/com/fs/starfarer/api/campaign/listeners/AppliedPostCombatCRLossToPlayerFleetMemberListener.java](src/com/fs/starfarer/api/campaign/listeners/AppliedPostCombatCRLossToPlayerFleetMemberListener.java)
 - `class com.fs.starfarer.api.campaign.listeners.BaseFleetEventListener` → [src/com/fs/starfarer/api/campaign/listeners/BaseFleetEventListener.java](src/com/fs/starfarer/api/campaign/listeners/BaseFleetEventListener.java)
 - `class com.fs.starfarer.api.campaign.listeners.BaseIndustryOptionProvider` → [src/com/fs/starfarer/api/campaign/listeners/BaseIndustryOptionProvider.java](src/com/fs/starfarer/api/campaign/listeners/BaseIndustryOptionProvider.java)
 - `interface com.fs.starfarer.api.campaign.listeners.CampaignInputListener` → [src/com/fs/starfarer/api/campaign/listeners/CampaignInputListener.java](src/com/fs/starfarer/api/campaign/listeners/CampaignInputListener.java)
@@ -238,6 +240,8 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.campaign.listeners.CoreDiscoverEntityPlugin` → [src/com/fs/starfarer/api/campaign/listeners/CoreDiscoverEntityPlugin.java](src/com/fs/starfarer/api/campaign/listeners/CoreDiscoverEntityPlugin.java)
 - `interface com.fs.starfarer.api.campaign.listeners.CoreUITabListener` → [src/com/fs/starfarer/api/campaign/listeners/CoreUITabListener.java](src/com/fs/starfarer/api/campaign/listeners/CoreUITabListener.java)
 - `interface com.fs.starfarer.api.campaign.listeners.CurrentLocationChangedListener` → [src/com/fs/starfarer/api/campaign/listeners/CurrentLocationChangedListener.java](src/com/fs/starfarer/api/campaign/listeners/CurrentLocationChangedListener.java)
+- `interface com.fs.starfarer.api.campaign.listeners.CustomProductionListener` → [src/com/fs/starfarer/api/campaign/listeners/CustomProductionListener.java](src/com/fs/starfarer/api/campaign/listeners/CustomProductionListener.java)
+- `interface com.fs.starfarer.api.campaign.listeners.DModRepairListener` → [src/com/fs/starfarer/api/campaign/listeners/DModRepairListener.java](src/com/fs/starfarer/api/campaign/listeners/DModRepairListener.java)
 - `interface com.fs.starfarer.api.campaign.listeners.DetectedEntityListener` → [src/com/fs/starfarer/api/campaign/listeners/DetectedEntityListener.java](src/com/fs/starfarer/api/campaign/listeners/DetectedEntityListener.java)
 - `interface com.fs.starfarer.api.campaign.listeners.DialogCreatorUI` → [src/com/fs/starfarer/api/campaign/listeners/DialogCreatorUI.java](src/com/fs/starfarer/api/campaign/listeners/DialogCreatorUI.java)
 - `interface com.fs.starfarer.api.campaign.listeners.DiscoverEntityListener` → [src/com/fs/starfarer/api/campaign/listeners/DiscoverEntityListener.java](src/com/fs/starfarer/api/campaign/listeners/DiscoverEntityListener.java)
@@ -249,6 +253,8 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.campaign.listeners.FleetSpawnListener` — Unused. → [src/com/fs/starfarer/api/campaign/listeners/FleetSpawnListener.java](src/com/fs/starfarer/api/campaign/listeners/FleetSpawnListener.java)
 - `interface com.fs.starfarer.api.campaign.listeners.GateTransitListener` → [src/com/fs/starfarer/api/campaign/listeners/GateTransitListener.java](src/com/fs/starfarer/api/campaign/listeners/GateTransitListener.java)
 - `interface com.fs.starfarer.api.campaign.listeners.GroundRaidObjectivesListener` → [src/com/fs/starfarer/api/campaign/listeners/GroundRaidObjectivesListener.java](src/com/fs/starfarer/api/campaign/listeners/GroundRaidObjectivesListener.java)
+- `interface com.fs.starfarer.api.campaign.listeners.IndustryApplyListener` — Note: these methods will also get called when creating certain tooltips etc, it should not be assumed that they ONLY get called as part of the normal functioning of the economy. → [src/com/fs/starfarer/api/campaign/listeners/IndustryApplyListener.java](src/com/fs/starfarer/api/campaign/listeners/IndustryApplyListener.java)
+- `interface com.fs.starfarer.api.campaign.listeners.IndustryMaxDeficitModifierListener` → [src/com/fs/starfarer/api/campaign/listeners/IndustryMaxDeficitModifierListener.java](src/com/fs/starfarer/api/campaign/listeners/IndustryMaxDeficitModifierListener.java)
 - `interface com.fs.starfarer.api.campaign.listeners.IndustryOptionProvider` → [src/com/fs/starfarer/api/campaign/listeners/IndustryOptionProvider.java](src/com/fs/starfarer/api/campaign/listeners/IndustryOptionProvider.java)
 - `interface com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI` → [src/com/fs/starfarer/api/campaign/listeners/ListenerManagerAPI.java](src/com/fs/starfarer/api/campaign/listeners/ListenerManagerAPI.java)
 - `class com.fs.starfarer.api.campaign.listeners.ListenerUtil` → [src/com/fs/starfarer/api/campaign/listeners/ListenerUtil.java](src/com/fs/starfarer/api/campaign/listeners/ListenerUtil.java)
@@ -344,6 +350,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.combat.CombatReadinessPlugin` → [src/com/fs/starfarer/api/combat/CombatReadinessPlugin.java](src/com/fs/starfarer/api/combat/CombatReadinessPlugin.java)
 - `interface com.fs.starfarer.api.combat.CombatTaskManagerAPI` → [src/com/fs/starfarer/api/combat/CombatTaskManagerAPI.java](src/com/fs/starfarer/api/combat/CombatTaskManagerAPI.java)
 - `interface com.fs.starfarer.api.combat.CombatUIAPI` → [src/com/fs/starfarer/api/combat/CombatUIAPI.java](src/com/fs/starfarer/api/combat/CombatUIAPI.java)
+- `interface com.fs.starfarer.api.combat.CombatViewOffsetAPI` → [src/com/fs/starfarer/api/combat/CombatViewOffsetAPI.java](src/com/fs/starfarer/api/combat/CombatViewOffsetAPI.java)
 - `interface com.fs.starfarer.api.combat.DamageAPI` → [src/com/fs/starfarer/api/combat/DamageAPI.java](src/com/fs/starfarer/api/combat/DamageAPI.java)
 - `enum com.fs.starfarer.api.combat.DamageType` → [src/com/fs/starfarer/api/combat/DamageType.java](src/com/fs/starfarer/api/combat/DamageType.java)
 - `interface com.fs.starfarer.api.combat.DamagingProjectileAPI` → [src/com/fs/starfarer/api/combat/DamagingProjectileAPI.java](src/com/fs/starfarer/api/combat/DamagingProjectileAPI.java)
@@ -403,6 +410,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.combat.listeners.FighterOPCostModifier` — Only applies when added to MutableShipStatsAPI, not to ShipAPI or the combat engine. → [src/com/fs/starfarer/api/combat/listeners/FighterOPCostModifier.java](src/com/fs/starfarer/api/combat/listeners/FighterOPCostModifier.java)
 - `interface com.fs.starfarer.api.combat.listeners.FleetMemberDeploymentListener` — Can only be added to the combat engine, not to specific ships; won't do anything in the latter case. → [src/com/fs/starfarer/api/combat/listeners/FleetMemberDeploymentListener.java](src/com/fs/starfarer/api/combat/listeners/FleetMemberDeploymentListener.java)
 - `interface com.fs.starfarer.api.combat.listeners.HullDamageAboutToBeTakenListener` — Should add this to a ship where possible instead of the engine as performance will be better. → [src/com/fs/starfarer/api/combat/listeners/HullDamageAboutToBeTakenListener.java](src/com/fs/starfarer/api/combat/listeners/HullDamageAboutToBeTakenListener.java)
+- `interface com.fs.starfarer.api.combat.listeners.ShipRenderListener` → [src/com/fs/starfarer/api/combat/listeners/ShipRenderListener.java](src/com/fs/starfarer/api/combat/listeners/ShipRenderListener.java)
 - `interface com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier` — Only applies when added to ships, NOT the combat engine, for performance reasons. → [src/com/fs/starfarer/api/combat/listeners/WeaponBaseRangeModifier.java](src/com/fs/starfarer/api/combat/listeners/WeaponBaseRangeModifier.java)
 - `interface com.fs.starfarer.api.combat.listeners.WeaponOPCostModifier` — Only applies when added to MutableShipStatsAPI, not to ShipAPI or the combat engine. → [src/com/fs/starfarer/api/combat/listeners/WeaponOPCostModifier.java](src/com/fs/starfarer/api/combat/listeners/WeaponOPCostModifier.java)
 - `interface com.fs.starfarer.api.combat.listeners.WeaponRangeModifier` — Only applies when added to ships, NOT the combat engine, for performance reasons. → [src/com/fs/starfarer/api/combat/listeners/WeaponRangeModifier.java](src/com/fs/starfarer/api/combat/listeners/WeaponRangeModifier.java)
@@ -465,6 +473,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.DelayedBlueprintLearnScript` → [src/com/fs/starfarer/api/impl/campaign/DelayedBlueprintLearnScript.java](src/com/fs/starfarer/api/impl/campaign/DelayedBlueprintLearnScript.java)
 - `class com.fs.starfarer.api.impl.campaign.DerelictShipEntityPlugin` → [src/com/fs/starfarer/api/impl/campaign/DerelictShipEntityPlugin.java](src/com/fs/starfarer/api/impl/campaign/DerelictShipEntityPlugin.java)
 - `class com.fs.starfarer.api.impl.campaign.DevMenuOptions` → [src/com/fs/starfarer/api/impl/campaign/DevMenuOptions.java](src/com/fs/starfarer/api/impl/campaign/DevMenuOptions.java)
+- `class com.fs.starfarer.api.impl.campaign.DomainGradePartsPlugin` → [src/com/fs/starfarer/api/impl/campaign/DomainGradePartsPlugin.java](src/com/fs/starfarer/api/impl/campaign/DomainGradePartsPlugin.java)
 - `class com.fs.starfarer.api.impl.campaign.ExampleCustomEntityPlugin` → [src/com/fs/starfarer/api/impl/campaign/ExampleCustomEntityPlugin.java](src/com/fs/starfarer/api/impl/campaign/ExampleCustomEntityPlugin.java)
 - `class com.fs.starfarer.api.impl.campaign.ExampleCustomUIPanel` → [src/com/fs/starfarer/api/impl/campaign/ExampleCustomUIPanel.java](src/com/fs/starfarer/api/impl/campaign/ExampleCustomUIPanel.java)
 - `class com.fs.starfarer.api.impl.campaign.ExplosionEntityPlugin` → [src/com/fs/starfarer/api/impl/campaign/ExplosionEntityPlugin.java](src/com/fs/starfarer/api/impl/campaign/ExplosionEntityPlugin.java)
@@ -490,9 +499,12 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.NavBuoyEntityPlugin` → [src/com/fs/starfarer/api/impl/campaign/NavBuoyEntityPlugin.java](src/com/fs/starfarer/api/impl/campaign/NavBuoyEntityPlugin.java)
 - `class com.fs.starfarer.api.impl.campaign.NewGameDialogPluginImpl` → [src/com/fs/starfarer/api/impl/campaign/NewGameDialogPluginImpl.java](src/com/fs/starfarer/api/impl/campaign/NewGameDialogPluginImpl.java)
 - `class com.fs.starfarer.api.impl.campaign.OfficerLevelupPluginImpl` → [src/com/fs/starfarer/api/impl/campaign/OfficerLevelupPluginImpl.java](src/com/fs/starfarer/api/impl/campaign/OfficerLevelupPluginImpl.java)
+- `class com.fs.starfarer.api.impl.campaign.OfficerTracker` → [src/com/fs/starfarer/api/impl/campaign/OfficerTracker.java](src/com/fs/starfarer/api/impl/campaign/OfficerTracker.java)
 - `class com.fs.starfarer.api.impl.campaign.OrbitalStationInteractionDialogPluginImpl` → [src/com/fs/starfarer/api/impl/campaign/OrbitalStationInteractionDialogPluginImpl.java](src/com/fs/starfarer/api/impl/campaign/OrbitalStationInteractionDialogPluginImpl.java)
+- `class com.fs.starfarer.api.impl.campaign.PlanetExplosionScript` → [src/com/fs/starfarer/api/impl/campaign/PlanetExplosionScript.java](src/com/fs/starfarer/api/impl/campaign/PlanetExplosionScript.java)
 - `class com.fs.starfarer.api.impl.campaign.PlanetInteractionDialogPluginImpl` → [src/com/fs/starfarer/api/impl/campaign/PlanetInteractionDialogPluginImpl.java](src/com/fs/starfarer/api/impl/campaign/PlanetInteractionDialogPluginImpl.java)
 - `class com.fs.starfarer.api.impl.campaign.RepairGantry` → [src/com/fs/starfarer/api/impl/campaign/RepairGantry.java](src/com/fs/starfarer/api/impl/campaign/RepairGantry.java)
+- `class com.fs.starfarer.api.impl.campaign.RetirementScript` → [src/com/fs/starfarer/api/impl/campaign/RetirementScript.java](src/com/fs/starfarer/api/impl/campaign/RetirementScript.java)
 - `class com.fs.starfarer.api.impl.campaign.RuleBasedInteractionDialogPluginImpl` → [src/com/fs/starfarer/api/impl/campaign/RuleBasedInteractionDialogPluginImpl.java](src/com/fs/starfarer/api/impl/campaign/RuleBasedInteractionDialogPluginImpl.java)
 - `class com.fs.starfarer.api.impl.campaign.SensorArrayEntityPlugin` → [src/com/fs/starfarer/api/impl/campaign/SensorArrayEntityPlugin.java](src/com/fs/starfarer/api/impl/campaign/SensorArrayEntityPlugin.java)
 - `class com.fs.starfarer.api.impl.campaign.SmugglingFactionChangeScript` → [src/com/fs/starfarer/api/impl/campaign/SmugglingFactionChangeScript.java](src/com/fs/starfarer/api/impl/campaign/SmugglingFactionChangeScript.java)
@@ -759,6 +771,8 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.fleets.SDFTriTachyon` → [src/com/fs/starfarer/api/impl/campaign/fleets/SDFTriTachyon.java](src/com/fs/starfarer/api/impl/campaign/fleets/SDFTriTachyon.java)
 - `class com.fs.starfarer.api.impl.campaign.fleets.SeededFleetManager` → [src/com/fs/starfarer/api/impl/campaign/fleets/SeededFleetManager.java](src/com/fs/starfarer/api/impl/campaign/fleets/SeededFleetManager.java)
 - `class com.fs.starfarer.api.impl.campaign.fleets.SourceBasedFleetManager` — Up to a configurable number of fleets. → [src/com/fs/starfarer/api/impl/campaign/fleets/SourceBasedFleetManager.java](src/com/fs/starfarer/api/impl/campaign/fleets/SourceBasedFleetManager.java)
+- `class com.fs.starfarer.api.impl.campaign.fleets.SupportFleetAssignmentAI` → [src/com/fs/starfarer/api/impl/campaign/fleets/SupportFleetAssignmentAI.java](src/com/fs/starfarer/api/impl/campaign/fleets/SupportFleetAssignmentAI.java)
+- `class com.fs.starfarer.api.impl.campaign.fleets.SupportFleetSpawner` → [src/com/fs/starfarer/api/impl/campaign/fleets/SupportFleetSpawner.java](src/com/fs/starfarer/api/impl/campaign/fleets/SupportFleetSpawner.java)
 
 ## com.fs.starfarer.api.impl.campaign.fleets.misc
 
@@ -1080,6 +1094,46 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.intel.events.ht.HTTopographicDataFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/ht/HTTopographicDataFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/ht/HTTopographicDataFactor.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.events.ht.HyperspaceTopographyEventIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/events/ht/HyperspaceTopographyEventIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/events/ht/HyperspaceTopographyEventIntel.java)
 
+## com.fs.starfarer.api.impl.campaign.intel.events.sd
+
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.AchillesFleetFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/AchillesFleetFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/AchillesFleetFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.AchillesForces` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/AchillesForces.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/AchillesForces.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.CadenFleetFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/CadenFleetFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/CadenFleetFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.HectorFleetFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/HectorFleetFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/HectorFleetFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.HyderFleetFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/HyderFleetFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/HyderFleetFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.LeashAssignmentAI` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/LeashAssignmentAI.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/LeashAssignmentAI.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDFuelFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDFuelFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDFuelFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDHighCommandFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDHighCommandFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDHighCommandFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDInstabilityFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInstabilityFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInstabilityFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDInsurgentACAFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInsurgentACAFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInsurgentACAFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDInsurgentARCFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInsurgentARCFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInsurgentARCFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDInsurgentVSDCFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInsurgentVSDCFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDInsurgentVSDCFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDPoints` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDPoints.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDPoints.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDRaoBacksAntisFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDRaoBacksAntisFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDRaoBacksAntisFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDTestDevastationFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDTestDevastationFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDTestDevastationFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDTestDevastationSubFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDTestDevastationSubFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDTestDevastationSubFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDTradeShipsDestroyedFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDTradeShipsDestroyedFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDTradeShipsDestroyedFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDDevastation` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDevastation.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDDevastation.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDFuelShortage` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDFuelShortage.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDFuelShortage.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDLGShipsDestroyedFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDLGShipsDestroyedFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDLGShipsDestroyedFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRArroyoFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRArroyoFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRArroyoFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRCadenFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRCadenFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRCadenFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRGensKatoFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRGensKatoFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRGensKatoFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRHyderFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRHyderFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRHyderFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRInesisFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRInesisFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRInesisFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRInsurgentACAFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRInsurgentACAFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRInsurgentACAFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRMacarioFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRMacarioFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRMacarioFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRPlayerColonyFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRPlayerColonyFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRPlayerColonyFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRPoints` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRPoints.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRPoints.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRShowEndingScript` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRShowEndingScript.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRShowEndingScript.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRTestAchillesFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRTestAchillesFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRTestAchillesFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRTestHectorFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRTestHectorFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRTestHectorFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRTriTachyonFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRTriTachyonFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRTriTachyonFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDRVolturnVSDCFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRVolturnVSDCFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDRVolturnVSDCFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDResolution` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDResolution.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDResolution.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDShipsDestroyedFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDShipsDestroyedFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDShipsDestroyedFactor.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.events.sd.SDStationDestroyedFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDStationDestroyedFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/sd/SDStationDestroyedFactor.java)
+
 ## com.fs.starfarer.api.impl.campaign.intel.events.ttcr
 
 - `class com.fs.starfarer.api.impl.campaign.intel.events.ttcr.TTCRCommerceRaidersDestroyedFactor` → [src/com/fs/starfarer/api/impl/campaign/intel/events/ttcr/TTCRCommerceRaidersDestroyedFactor.java](src/com/fs/starfarer/api/impl/campaign/intel/events/ttcr/TTCRCommerceRaidersDestroyedFactor.java)
@@ -1144,7 +1198,9 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.RemnantNexusIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/RemnantNexusIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/RemnantNexusIntel.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.RemoteSurveyDataForPlanetIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/RemoteSurveyDataForPlanetIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/RemoteSurveyDataForPlanetIntel.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.SalvorsTallyIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/SalvorsTallyIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/SalvorsTallyIntel.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.misc.SevenSonsIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/SevenSonsIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/SevenSonsIntel.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.SimUpdateIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/SimUpdateIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/SimUpdateIntel.java)
+- `class com.fs.starfarer.api.impl.campaign.intel.misc.SupportFleetIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/SupportFleetIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/SupportFleetIntel.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.SurveyDataForPlanetIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/SurveyDataForPlanetIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/SurveyDataForPlanetIntel.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.TradeFleetDepartureIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/TradeFleetDepartureIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/TradeFleetDepartureIntel.java)
 - `class com.fs.starfarer.api.impl.campaign.intel.misc.WarningBeaconIntel` → [src/com/fs/starfarer/api/impl/campaign/intel/misc/WarningBeaconIntel.java](src/com/fs/starfarer/api/impl/campaign/intel/misc/WarningBeaconIntel.java)
@@ -1238,6 +1294,8 @@ Grep this file to find a type, then open its source for full signatures and Java
 
 ## com.fs.starfarer.api.impl.campaign.missions.askonia
 
+- `class com.fs.starfarer.api.impl.campaign.missions.askonia.SDSevenSons` → [src/com/fs/starfarer/api/impl/campaign/missions/askonia/SDSevenSons.java](src/com/fs/starfarer/api/impl/campaign/missions/askonia/SDSevenSons.java)
+- `class com.fs.starfarer.api.impl.campaign.missions.askonia.SDSupremeExecutor` → [src/com/fs/starfarer/api/impl/campaign/missions/askonia/SDSupremeExecutor.java](src/com/fs/starfarer/api/impl/campaign/missions/askonia/SDSupremeExecutor.java)
 - `class com.fs.starfarer.api.impl.campaign.missions.askonia.TheUsurpers` → [src/com/fs/starfarer/api/impl/campaign/missions/askonia/TheUsurpers.java](src/com/fs/starfarer/api/impl/campaign/missions/askonia/TheUsurpers.java)
 
 ## com.fs.starfarer.api.impl.campaign.missions.cb
@@ -1434,6 +1492,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.DumpMemory` — Usage: AbortWait $waitHandle → [src/com/fs/starfarer/api/impl/campaign/rulecmd/DumpMemory.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/DumpMemory.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.DwellerCMD` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/DwellerCMD.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/DwellerCMD.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.EndConversation` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/EndConversation.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/EndConversation.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.FinishVisualFadeFast` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/FinishVisualFadeFast.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/FinishVisualFadeFast.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.FireAll` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/FireAll.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/FireAll.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.FireBest` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/FireBest.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/FireBest.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.FleetDesc` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/FleetDesc.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/FleetDesc.java)
@@ -1442,6 +1501,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.HT_CMD` — For Hyperspace Topography ("HT") related tasks. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HT_CMD.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HT_CMD.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.HailPlayer` — HailPlayer Equivalent to: AddText "You're being hailed by the $faction $otherShipOrFleet." $faction.baseColor $hailing = true 0 The latter changes the "open comm link" text to a yellow "accept the com… → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HailPlayer.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HailPlayer.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.HasAttentionOfAuthorities` — Of the local market's faction, if any. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HasAttentionOfAuthorities.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HasAttentionOfAuthorities.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.HasContactFromFaction` — HasContactFromFaction $factionId → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HasContactFromFaction.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HasContactFromFaction.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.HideFirstPerson` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HideFirstPerson.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HideFirstPerson.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.HideMapMarker` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HideMapMarker.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HideMapMarker.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.HideSecondPerson` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/HideSecondPerson.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/HideSecondPerson.java)
@@ -1477,6 +1537,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.MakeOtherFleetPreventDisengage` — Prevents disengaging by player even if not hostile. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/MakeOtherFleetPreventDisengage.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/MakeOtherFleetPreventDisengage.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.MakePlayerImmediatelyAttackable` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/MakePlayerImmediatelyAttackable.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/MakePlayerImmediatelyAttackable.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.MarketGainRandomRep` — Does not start an actual conversation, but does set them as the active person (so $heOrShe etc tokens work) → [src/com/fs/starfarer/api/impl/campaign/rulecmd/MarketGainRandomRep.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/MarketGainRandomRep.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.MarketHasIndustry` — MarketHasIndustry etc Checks if market has ANY of the listed industries. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/MarketHasIndustry.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/MarketHasIndustry.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.MarketReduceRandomRep` — Does not start an actual conversation, but does set them as the active person (so $heOrShe etc tokens work) → [src/com/fs/starfarer/api/impl/campaign/rulecmd/MarketReduceRandomRep.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/MarketReduceRandomRep.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.MovePersonToMarket` — Can pass in an invalid person ID to use the active person instead. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/MovePersonToMarket.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/MovePersonToMarket.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.NGCAddCargo` — NGCAddCargo → [src/com/fs/starfarer/api/impl/campaign/rulecmd/NGCAddCargo.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/NGCAddCargo.java)
@@ -1505,6 +1566,8 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.PaginatedOptions` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PaginatedOptions.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PaginatedOptions.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.PaginatedOptionsExample` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PaginatedOptionsExample.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PaginatedOptionsExample.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.PauseMusic` — Pauses all music, custom or otherwise. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PauseMusic.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PauseMusic.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.PersonCMD` — PersonCMD First parameter is the person id. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PersonCMD.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PersonCMD.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.PersonIsDefaultMarketPost` — PersonIsDefaultMarketPost Returns true if the queried person holds one of the default market posts, otherwise false. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PersonIsDefaultMarketPost.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PersonIsDefaultMarketPost.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.PickCommsNPC` — OpenCoreTab → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PickCommsNPC.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PickCommsNPC.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.Ping` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/Ping.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/Ping.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.PlayCustomMusic` — Plays custom music with the provided ID. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/PlayCustomMusic.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/PlayCustomMusic.java)
@@ -1534,6 +1597,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.RestoreSavedVisual` — Restores visual saved by SaveCurrentVisual. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/RestoreSavedVisual.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/RestoreSavedVisual.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ResumeNormalMusic` — Ends custom music playback and restarts whatever the default music would be. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ResumeNormalMusic.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ResumeNormalMusic.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.RollProbability` — RollProbability → [src/com/fs/starfarer/api/impl/campaign/rulecmd/RollProbability.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/RollProbability.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.SDR_CMD` — For Sindrian Diktat Resolution ("SDR") related calls. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/SDR_CMD.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/SDR_CMD.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.SaveCurrentVisual` — Saves current visual so it can be restored using RestoreCurrentVisual. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/SaveCurrentVisual.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/SaveCurrentVisual.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.SetActiveMission` — SetActiveMission $missionEventHandle → [src/com/fs/starfarer/api/impl/campaign/rulecmd/SetActiveMission.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/SetActiveMission.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.SetCodexEntryId` — SetCodexEntryId Sets the id of the entry to show when the Codex is opened, with an expiration of 0. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/SetCodexEntryId.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/SetCodexEntryId.java)
@@ -1558,12 +1622,13 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.SetTooltipHighlightColors` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/SetTooltipHighlightColors.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/SetTooltipHighlightColors.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.SetTooltipHighlights` — SetTooltipHighlights params → [src/com/fs/starfarer/api/impl/campaign/rulecmd/SetTooltipHighlights.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/SetTooltipHighlights.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowDefaultVisual` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowDefaultVisual.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowDefaultVisual.java)
-- `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowFirstPerson` — ShowSecondPerson → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowFirstPerson.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowFirstPerson.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowFirstPerson` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowFirstPerson.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowFirstPerson.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowImageVisual` — ShowImageVisual → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowImageVisual.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowImageVisual.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowLargePlanet` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowLargePlanet.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowLargePlanet.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowMapMarker` — ShowIntelMarker → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowMapMarker.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowMapMarker.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowPersonVisual` — ShowPersonVisual → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowPersonVisual.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowPersonVisual.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowPic` — Parameter is key from settings.json under "illustrations". → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowPic.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowPic.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowPlayerPerson` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowPlayerPerson.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowPlayerPerson.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowRemainingCapacity` — ShowRemainingCapacity → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowRemainingCapacity.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowRemainingCapacity.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowResCost` — ShowResCost (repeated); optional: width of each panel ShowResCost crew 1000 supplies 100 true 200 = requires 1000 crew, 100 supplis (consumed), each item is 200 pixels wide → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowResCost.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowResCost.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.ShowSecondPerson` — ShowSecondPerson → [src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowSecondPerson.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/ShowSecondPerson.java)
@@ -1626,6 +1691,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageEntity` — NotifyEvent $eventHandle → [src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SalvageEntity.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SalvageEntity.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageGenFromSeed` — Actually just generates automated defenses, not salvage. → [src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SalvageGenFromSeed.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SalvageGenFromSeed.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageSpecialInteraction` — SalvageSpecialInteraction → [src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SalvageSpecialInteraction.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SalvageSpecialInteraction.java)
+- `class com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SellToFleet` — NotifyEvent $eventHandle → [src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SellToFleet.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/SellToFleet.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.salvage.ZGRTurnIn` — NotifyEvent $eventHandle → [src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/ZGRTurnIn.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/ZGRTurnIn.java)
 - `class com.fs.starfarer.api.impl.campaign.rulecmd.salvage.ZigguratCMD` → [src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/ZigguratCMD.java](src/com/fs/starfarer/api/impl/campaign/rulecmd/salvage/ZigguratCMD.java)
 
@@ -1819,7 +1885,9 @@ Grep this file to find a type, then open its source for full signatures and Java
 ## com.fs.starfarer.api.impl.campaign.world
 
 - `class com.fs.starfarer.api.impl.campaign.world.GateHaulerLocation` → [src/com/fs/starfarer/api/impl/campaign/world/GateHaulerLocation.java](src/com/fs/starfarer/api/impl/campaign/world/GateHaulerLocation.java)
+- `class com.fs.starfarer.api.impl.campaign.world.JuvenileDweller` → [src/com/fs/starfarer/api/impl/campaign/world/JuvenileDweller.java](src/com/fs/starfarer/api/impl/campaign/world/JuvenileDweller.java)
 - `class com.fs.starfarer.api.impl.campaign.world.Limbo` → [src/com/fs/starfarer/api/impl/campaign/world/Limbo.java](src/com/fs/starfarer/api/impl/campaign/world/Limbo.java)
+- `class com.fs.starfarer.api.impl.campaign.world.MercAbyssExpedition` → [src/com/fs/starfarer/api/impl/campaign/world/MercAbyssExpedition.java](src/com/fs/starfarer/api/impl/campaign/world/MercAbyssExpedition.java)
 - `class com.fs.starfarer.api.impl.campaign.world.MoteParticleScript` → [src/com/fs/starfarer/api/impl/campaign/world/MoteParticleScript.java](src/com/fs/starfarer/api/impl/campaign/world/MoteParticleScript.java)
 - `class com.fs.starfarer.api.impl.campaign.world.NamelessRock` → [src/com/fs/starfarer/api/impl/campaign/world/NamelessRock.java](src/com/fs/starfarer/api/impl/campaign/world/NamelessRock.java)
 - `class com.fs.starfarer.api.impl.campaign.world.TTBlackSite` → [src/com/fs/starfarer/api/impl/campaign/world/TTBlackSite.java](src/com/fs/starfarer/api/impl/campaign/world/TTBlackSite.java)
@@ -1860,6 +1928,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.impl.combat.DroneStrikeStatsAIInfoProvider` → [src/com/fs/starfarer/api/impl/combat/DroneStrikeStatsAIInfoProvider.java](src/com/fs/starfarer/api/impl/combat/DroneStrikeStatsAIInfoProvider.java)
 - `class com.fs.starfarer.api.impl.combat.EntropyAmplifierStats` → [src/com/fs/starfarer/api/impl/combat/EntropyAmplifierStats.java](src/com/fs/starfarer/api/impl/combat/EntropyAmplifierStats.java)
 - `class com.fs.starfarer.api.impl.combat.EscapeRevealPlugin` → [src/com/fs/starfarer/api/impl/combat/EscapeRevealPlugin.java](src/com/fs/starfarer/api/impl/combat/EscapeRevealPlugin.java)
+- `class com.fs.starfarer.api.impl.combat.ExtBlockPhaseCloakWhileCoolingDownEffect` → [src/com/fs/starfarer/api/impl/combat/ExtBlockPhaseCloakWhileCoolingDownEffect.java](src/com/fs/starfarer/api/impl/combat/ExtBlockPhaseCloakWhileCoolingDownEffect.java)
 - `class com.fs.starfarer.api.impl.combat.GenericCombatPlugin` → [src/com/fs/starfarer/api/impl/combat/GenericCombatPlugin.java](src/com/fs/starfarer/api/impl/combat/GenericCombatPlugin.java)
 - `class com.fs.starfarer.api.impl.combat.GravitonBeamEffect` → [src/com/fs/starfarer/api/impl/combat/GravitonBeamEffect.java](src/com/fs/starfarer/api/impl/combat/GravitonBeamEffect.java)
 - `class com.fs.starfarer.api.impl.combat.GravityPullEffect` → [src/com/fs/starfarer/api/impl/combat/GravityPullEffect.java](src/com/fs/starfarer/api/impl/combat/GravityPullEffect.java)
@@ -1907,6 +1976,7 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.combat.ShockwaveVisual` — Used for ship explosions when there's no whiteout. → [src/com/fs/starfarer/api/impl/combat/ShockwaveVisual.java](src/com/fs/starfarer/api/impl/combat/ShockwaveVisual.java)
 - `class com.fs.starfarer.api.impl.combat.SquallOnFireEffect` → [src/com/fs/starfarer/api/impl/combat/SquallOnFireEffect.java](src/com/fs/starfarer/api/impl/combat/SquallOnFireEffect.java)
 - `class com.fs.starfarer.api.impl.combat.TachyonLanceEffect` → [src/com/fs/starfarer/api/impl/combat/TachyonLanceEffect.java](src/com/fs/starfarer/api/impl/combat/TachyonLanceEffect.java)
+- `class com.fs.starfarer.api.impl.combat.TacticalLaserEffect` → [src/com/fs/starfarer/api/impl/combat/TacticalLaserEffect.java](src/com/fs/starfarer/api/impl/combat/TacticalLaserEffect.java)
 - `class com.fs.starfarer.api.impl.combat.TargetingFeedStats` → [src/com/fs/starfarer/api/impl/combat/TargetingFeedStats.java](src/com/fs/starfarer/api/impl/combat/TargetingFeedStats.java)
 - `class com.fs.starfarer.api.impl.combat.TemporalShellStats` → [src/com/fs/starfarer/api/impl/combat/TemporalShellStats.java](src/com/fs/starfarer/api/impl/combat/TemporalShellStats.java)
 - `class com.fs.starfarer.api.impl.combat.TestOnHitEffect` → [src/com/fs/starfarer/api/impl/combat/TestOnHitEffect.java](src/com/fs/starfarer/api/impl/combat/TestOnHitEffect.java)
@@ -2044,7 +2114,9 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `class com.fs.starfarer.api.impl.hullmods.HighResSensors` → [src/com/fs/starfarer/api/impl/hullmods/HighResSensors.java](src/com/fs/starfarer/api/impl/hullmods/HighResSensors.java)
 - `class com.fs.starfarer.api.impl.hullmods.HighScatterAmp` → [src/com/fs/starfarer/api/impl/hullmods/HighScatterAmp.java](src/com/fs/starfarer/api/impl/hullmods/HighScatterAmp.java)
 - `class com.fs.starfarer.api.impl.hullmods.IncreasedMaintenance` → [src/com/fs/starfarer/api/impl/hullmods/IncreasedMaintenance.java](src/com/fs/starfarer/api/impl/hullmods/IncreasedMaintenance.java)
+- `class com.fs.starfarer.api.impl.hullmods.LowMaintenance` → [src/com/fs/starfarer/api/impl/hullmods/LowMaintenance.java](src/com/fs/starfarer/api/impl/hullmods/LowMaintenance.java)
 - `class com.fs.starfarer.api.impl.hullmods.MalfunctioningComms` → [src/com/fs/starfarer/api/impl/hullmods/MalfunctioningComms.java](src/com/fs/starfarer/api/impl/hullmods/MalfunctioningComms.java)
+- `class com.fs.starfarer.api.impl.hullmods.ManualSystems` → [src/com/fs/starfarer/api/impl/hullmods/ManualSystems.java](src/com/fs/starfarer/api/impl/hullmods/ManualSystems.java)
 - `class com.fs.starfarer.api.impl.hullmods.MilitarizedSubsystems` → [src/com/fs/starfarer/api/impl/hullmods/MilitarizedSubsystems.java](src/com/fs/starfarer/api/impl/hullmods/MilitarizedSubsystems.java)
 - `class com.fs.starfarer.api.impl.hullmods.MissileAutoloader` → [src/com/fs/starfarer/api/impl/hullmods/MissileAutoloader.java](src/com/fs/starfarer/api/impl/hullmods/MissileAutoloader.java)
 - `class com.fs.starfarer.api.impl.hullmods.NavRelay` → [src/com/fs/starfarer/api/impl/hullmods/NavRelay.java](src/com/fs/starfarer/api/impl/hullmods/NavRelay.java)
@@ -2138,7 +2210,9 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.ui.ButtonDelegate` → [src/com/fs/starfarer/api/ui/ButtonDelegate.java](src/com/fs/starfarer/api/ui/ButtonDelegate.java)
 - `interface com.fs.starfarer.api.ui.CustomPanelAPI` → [src/com/fs/starfarer/api/ui/CustomPanelAPI.java](src/com/fs/starfarer/api/ui/CustomPanelAPI.java)
 - `enum com.fs.starfarer.api.ui.CutStyle` → [src/com/fs/starfarer/api/ui/CutStyle.java](src/com/fs/starfarer/api/ui/CutStyle.java)
+- `interface com.fs.starfarer.api.ui.DataGridAPI` — x, y are cell coordinates, not screen coordinates. → [src/com/fs/starfarer/api/ui/DataGridAPI.java](src/com/fs/starfarer/api/ui/DataGridAPI.java)
 - `interface com.fs.starfarer.api.ui.EventProgressBarAPI` → [src/com/fs/starfarer/api/ui/EventProgressBarAPI.java](src/com/fs/starfarer/api/ui/EventProgressBarAPI.java)
+- `interface com.fs.starfarer.api.ui.FocusManagerAPI` → [src/com/fs/starfarer/api/ui/FocusManagerAPI.java](src/com/fs/starfarer/api/ui/FocusManagerAPI.java)
 - `class com.fs.starfarer.api.ui.Fonts` → [src/com/fs/starfarer/api/ui/Fonts.java](src/com/fs/starfarer/api/ui/Fonts.java)
 - `interface com.fs.starfarer.api.ui.HintPanelAPI` → [src/com/fs/starfarer/api/ui/HintPanelAPI.java](src/com/fs/starfarer/api/ui/HintPanelAPI.java)
 - `interface com.fs.starfarer.api.ui.IconGroupAPI` → [src/com/fs/starfarer/api/ui/IconGroupAPI.java](src/com/fs/starfarer/api/ui/IconGroupAPI.java)
@@ -2151,10 +2225,12 @@ Grep this file to find a type, then open its source for full signatures and Java
 - `interface com.fs.starfarer.api.ui.PositionAPI` → [src/com/fs/starfarer/api/ui/PositionAPI.java](src/com/fs/starfarer/api/ui/PositionAPI.java)
 - `interface com.fs.starfarer.api.ui.ScrollPanelAPI` → [src/com/fs/starfarer/api/ui/ScrollPanelAPI.java](src/com/fs/starfarer/api/ui/ScrollPanelAPI.java)
 - `interface com.fs.starfarer.api.ui.SectorMapAPI` → [src/com/fs/starfarer/api/ui/SectorMapAPI.java](src/com/fs/starfarer/api/ui/SectorMapAPI.java)
+- `interface com.fs.starfarer.api.ui.SliderAPI` → [src/com/fs/starfarer/api/ui/SliderAPI.java](src/com/fs/starfarer/api/ui/SliderAPI.java)
 - `interface com.fs.starfarer.api.ui.TagDisplayAPI` → [src/com/fs/starfarer/api/ui/TagDisplayAPI.java](src/com/fs/starfarer/api/ui/TagDisplayAPI.java)
 - `interface com.fs.starfarer.api.ui.TextFieldAPI` → [src/com/fs/starfarer/api/ui/TextFieldAPI.java](src/com/fs/starfarer/api/ui/TextFieldAPI.java)
 - `interface com.fs.starfarer.api.ui.TooltipMakerAPI` — Not just for tooltips; used for normal UI elements as well. → [src/com/fs/starfarer/api/ui/TooltipMakerAPI.java](src/com/fs/starfarer/api/ui/TooltipMakerAPI.java)
 - `interface com.fs.starfarer.api.ui.UIComponentAPI` → [src/com/fs/starfarer/api/ui/UIComponentAPI.java](src/com/fs/starfarer/api/ui/UIComponentAPI.java)
+- `interface com.fs.starfarer.api.ui.UILogicAPI` → [src/com/fs/starfarer/api/ui/UILogicAPI.java](src/com/fs/starfarer/api/ui/UILogicAPI.java)
 - `interface com.fs.starfarer.api.ui.UIPanelAPI` → [src/com/fs/starfarer/api/ui/UIPanelAPI.java](src/com/fs/starfarer/api/ui/UIPanelAPI.java)
 - `enum com.fs.starfarer.api.ui.ValueDisplayMode` → [src/com/fs/starfarer/api/ui/ValueDisplayMode.java](src/com/fs/starfarer/api/ui/ValueDisplayMode.java)
 

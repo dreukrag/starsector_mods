@@ -17,10 +17,13 @@ import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
 
 public class EntropyAmplifierStats extends BaseShipSystemScript {
+	public static String HAS_EA = "has_EA";
+	
 	public static Object KEY_SHIP = new Object();
 	public static Object KEY_TARGET = new Object();
 	
-	public static float DAM_MULT = 1.5f;
+	//public static float DAM_MULT = 1.5f;
+	public static float DAM_MULT = 1.3f;
 	protected static float RANGE = 1500f;
 	
 	public static Color TEXT_COLOR = new Color(255,55,55,255);
@@ -49,6 +52,8 @@ public class EntropyAmplifierStats extends BaseShipSystemScript {
 		} else {
 			return;
 		}
+		
+		//DAM_MULT = 1.5f;
 		
 		final String targetDataKey = ship.getId() + "_entropy_target_data";
 		
@@ -90,12 +95,14 @@ public class EntropyAmplifierStats extends BaseShipSystemScript {
 						targetData.target.getMutableStats().getArmorDamageTakenMult().unmodify(id);
 						targetData.target.getMutableStats().getShieldDamageTakenMult().unmodify(id);
 						targetData.target.getMutableStats().getEmpDamageTakenMult().unmodify(id);
+						targetData.target.getMutableStats().getDynamic().getMod(HAS_EA).unmodify();
 						Global.getCombatEngine().removePlugin(targetData.targetEffectPlugin);
 					} else {
 						targetData.target.getMutableStats().getHullDamageTakenMult().modifyMult(id, targetData.currDamMult);
 						targetData.target.getMutableStats().getArmorDamageTakenMult().modifyMult(id, targetData.currDamMult);
 						targetData.target.getMutableStats().getShieldDamageTakenMult().modifyMult(id, targetData.currDamMult);
 						targetData.target.getMutableStats().getEmpDamageTakenMult().modifyMult(id, targetData.currDamMult);
+						targetData.target.getMutableStats().getDynamic().getMod(HAS_EA).modifyFlat(id, 1f);
 					}
 				}
 			};

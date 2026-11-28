@@ -1,8 +1,9 @@
 package com.fs.starfarer.api.impl.campaign.missions;
 
-import java.awt.Color;
 import java.util.List;
 import java.util.Map;
+
+import java.awt.Color;
 
 import org.lwjgl.util.vector.Vector2f;
 
@@ -42,8 +43,8 @@ public class SecurityCodes extends HubMissionWithBarEvent implements ColonyPlaye
 	public static float PROB_COMPLICATIONS = 0.5f;
 	public static float PROB_PATROL_ENCOUNTER_AFTER = 0.5f;
 	
-	public static float MIN_DAYS = 30f;
-	public static float MAX_DAYS = 90f;
+	public static float MIN_DAYS = 120f;
+	public static float MAX_DAYS = 180f;
 	
 	public static float BASE_PRICE = 30000;
 	
